@@ -40,13 +40,18 @@ export const portfolioConfig: PortfolioConfig = {
   // Featured Projects (will be enhanced with GitHub API data)
   featuredProjects: [
     {
-      repo: "birthday-surprise",
-      demoUrl: "https://birthday-surprise-v1.vercel.app/",
+      repo: "learn-spring",
+      demoUrl: "https://viblo.asia/u/Butterfect",
       featured: true,
     },
     {
-      repo: "key-rush",
-      demoUrl: "https://key-rush-eight.vercel.app/",
+      repo: "collect-spb",
+      demoUrl: "https://duong3011.notion.site/Duong-Dang-Tuan-f6660347c76047eca4568a2757cdfe93/",
+      featured: true,
+    },
+    {
+      repo: "nestjs-assignment-m",
+      demoUrl: "https://voz.vn/",
       featured: true,
     },
   ],
