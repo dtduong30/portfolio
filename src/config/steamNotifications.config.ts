@@ -1,212 +1,194 @@
 export interface SteamNotification {
   id: string;
-  type:
-    | "friend-online"
-    | "playing"
-    | "invite"
-    | "achievement"
-    | "trade"
-    | "message";
+  type: "friend-online" | "playing" | "invite" | "achievement" | "message";
   avatar?: string;
   name: string;
   message: string;
   action?: string;
 }
 
-export const steamNotifications: SteamNotification[] = [
-  // Real Friends (Satire)
-  {
-    id: "dwight-playing",
-    type: "playing",
-    name: "Dwight",
-    message: "is now playing",
-    action: "Beet Farm Simulator 2025",
-    avatar:
-      "https://avatars.akamai.steamstatic.com/348bfcc2f5e138027a503aabe6fcc456920c2ffc_full.jpg",
-  },
-  {
-    id: "jomar-invite",
-    type: "invite",
-    name: "Jomar",
-    message: "has invited you to",
-    action: "the parlor (no escape)",
-    avatar:
-      "https://avatars.akamai.steamstatic.com/292cd01bfcde8d57f15f0c5916ccd6c01a324d99_full.jpg",
-  },
-  {
-    id: "banjo-achievement",
-    type: "achievement",
-    name: "Banjo",
-    message: "unlocked achievement:",
-    action: "Actually Touched Grass",
-    avatar:
-      "https://avatars.akamai.steamstatic.com/84445a5904b524abdc0ba160401d7b125ec649eb_full.jpg",
-  },
+interface NotificationData {
+  users: { name: string; avatar?: string }[];
+  games: string[];
+  achievements: string[];
+  invites: string[];
+  messages: string[];
+  templates: {
+    type: SteamNotification["type"];
+    message: string;
+    action?: string;
+  }[];
+}
 
-  // Friend Online
-  {
-    id: "bill-gates-online",
-    type: "friend-online",
-    name: "Bill Gates",
-    message: "is now online",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=BillGates",
-  },
-  {
-    id: "elon-online",
-    type: "friend-online",
-    name: "Elon Musk",
-    message: "is now online",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=ElonMusk",
-  },
-  {
-    id: "zuck-online",
-    type: "friend-online",
-    name: "Mark Zuckerberg",
-    message: "is now online in the Metaverse",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Zuckerberg",
-  },
-  {
-    id: "jobs-online",
-    type: "friend-online",
-    name: "Steve Jobs",
-    message: "is now online",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=SteveJobs",
-  },
+interface NotificationOptions {
+  excludeUsers?: string[];
+  excludeActions?: string[];
+}
 
-  // Playing Games
-  {
-    id: "elon-playing",
-    type: "playing",
-    name: "Elon Musk",
-    message: "is now playing",
-    action: "Twitter Takeover Simulator",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=ElonMusk",
-  },
-  {
-    id: "zuck-vr",
-    type: "playing",
-    name: "Mark Zuckerberg",
-    message: "is now playing",
-    action: "Metaverse: Population 1",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Zuckerberg",
-  },
-  {
-    id: "bezos-playing",
-    type: "playing",
-    name: "Jeff Bezos",
-    message: "is now playing",
-    action: "Rocket League (literally)",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Bezos",
-  },
-  {
-    id: "gates-minesweeper",
-    type: "playing",
-    name: "Bill Gates",
-    message: "is now playing",
-    action: "Minesweeper (Classic)",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=BillGates",
-  },
-  {
-    id: "satoshi-playing",
-    type: "playing",
-    name: "Satoshi Nakamoto",
-    message: "is now playing",
-    action: "Hide and Seek",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Satoshi",
-  },
+type UserPresenceState = "offline" | "online" | "playing";
 
-  // Invites
-  {
-    id: "roaring-kitty-trade",
-    type: "invite",
-    name: "Roaring Kitty",
-    message: "has invited you to trade",
-    action: "WorryDong",
-    avatar:
-      "https://media.discordapp.net/attachments/1313764738001408040/1322031916249251860/worryThumbsUp.png?ex=69b573ea&is=69b4226a&hm=8bb64567411c48259f32b4131e3bf5e87ee993ed84e362aa75f391fb109a2f1f&=&format=webp&quality=lossless&width=256&height=256",
-  },
-  {
-    id: "buffett-invite",
-    type: "invite",
-    name: "Warren Buffett",
-    message: "has invited you to play",
-    action: "The Long Game",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=WarrenBuffett",
-  },
-  {
-    id: "vitalik-invite",
-    type: "invite",
-    name: "Vitalik Buterin",
-    message: "has invited you to",
-    action: "merge the mainnet",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Vitalik",
-  },
+interface UserState {
+  status: UserPresenceState;
+  currentGame?: string;
+}
+const userStates = new Map<string, UserState>();
 
-  // Achievements
-  {
-    id: "linus-achievement",
-    type: "achievement",
-    name: "Linus Torvalds",
-    message: "unlocked achievement:",
-    action: "Built Different",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Linus",
-  },
-  {
-    id: "ada-achievement",
-    type: "achievement",
-    name: "Ada Lovelace",
-    message: "unlocked achievement:",
-    action: "First Programmer",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Ada",
-  },
+let data: NotificationData | null = null;
+const CDN_URL =
+  "https://cdn.jsdelivr.net/gh/dtduong30/rich-content@master/notifications.json";
 
-  // Messages
-  {
-    id: "cook-message",
-    type: "message",
-    name: "Tim Cook",
-    message: "sent you a message:",
-    action: '"Sent from my iPhone"',
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=TimCook",
-  },
-  {
-    id: "carmack-message",
-    type: "message",
-    name: "John Carmack",
-    message: "sent you a message:",
-    action: '"Need more FPS"',
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Carmack",
-  },
-  {
-    id: "gaben-message",
-    type: "message",
-    name: "Gabe Newell",
-    message: "sent you a message:",
-    action: '"Half-Life 3 confirmed?"',
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Gaben",
-  },
+export async function loadNotifications() {
+  try {
+    const res = await fetch(CDN_URL);
 
-  // Trade Offers
-  {
-    id: "woz-trade",
-    type: "trade",
-    name: "Steve Wozniak",
-    message: "wants to trade",
-    action: "vintage Apple I for your code",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Wozniak",
-  },
-  {
-    id: "dorsey-trade",
-    type: "trade",
-    name: "Jack Dorsey",
-    message: "wants to trade",
-    action: "first tweet NFT",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Dorsey",
-  },
-];
+    if (!res.ok) throw new Error("Failed to load notifications");
 
-// Get random notification
-export const getRandomNotification = (): SteamNotification => {
-  const randomIndex = Math.floor(Math.random() * steamNotifications.length);
-  return steamNotifications[randomIndex];
-};
+    const json: NotificationData = await res.json();
+    data = json;
+
+    if (!data?.users) return;
+
+    for (const user of data.users) {
+      if (!userStates.has(user.name)) {
+        userStates.set(user.name, { status: "offline" });
+      }
+    }
+  } catch (err) {
+    console.warn("Notification data failed to load", err);
+  }
+}
+
+function random<T>(arr: T[]): T {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+function randomExcept<T>(arr: T[], excluded: T[] = []): T | null {
+  if (arr.length === 0) return null;
+
+  const filtered = arr.filter((item) => !excluded.includes(item));
+  return filtered.length > 0 ? random(filtered) : random(arr);
+}
+
+function createNotification(
+  user: { name: string; avatar?: string },
+  type: SteamNotification["type"],
+  message: string,
+  action?: string,
+): SteamNotification {
+  return {
+    id: crypto.randomUUID(),
+    type,
+    name: user.name,
+    avatar: user.avatar,
+    message,
+    action,
+  };
+}
+
+function getAvailableUsers(excludeUsers: string[] = []) {
+  if (!data) return [];
+
+  const available = data.users.filter(
+    (user) => !excludeUsers.includes(user.name),
+  );
+
+  return available.length > 0 ? available : data.users;
+}
+
+/**
+ * Notification priority:
+ * 1. Offline user comes online
+ * 2. Online user starts playing a game
+ * 3. Playing user gets achievement
+ * 4. Playing/online user sends invite/message
+ */
+export function getRandomNotification(
+  options: NotificationOptions = {},
+): SteamNotification {
+  if (!data) {
+    return {
+      id: crypto.randomUUID(),
+      type: "friend-online",
+      name: "Steam User",
+      message: "is now online",
+    };
+  }
+
+  const excludeUsers = options.excludeUsers ?? [];
+  const excludeActions = options.excludeActions ?? [];
+
+  const availableUsers = getAvailableUsers(excludeUsers);
+
+  // Split users by state
+  const offlineUsers = availableUsers.filter(
+    (user) => userStates.get(user.name)?.status === "offline",
+  );
+
+  const onlineUsers = availableUsers.filter(
+    (user) => userStates.get(user.name)?.status === "online",
+  );
+
+  const playingUsers = availableUsers.filter(
+    (user) => userStates.get(user.name)?.status === "playing",
+  );
+
+  // Weighted flow to keep notifications natural
+  const roll = Math.random();
+
+  // 1) Prefer offline -> online
+  if (offlineUsers.length > 0 && roll < 0.45) {
+    const user = random(offlineUsers);
+    userStates.set(user.name, { status: "online" });
+
+    return createNotification(user, "friend-online", "is now online");
+  }
+
+  // 2) Then online -> playing
+  if (onlineUsers.length > 0 && roll < 0.75) {
+    const user = random(onlineUsers);
+    const game = randomExcept(data.games, excludeActions) ?? random(data.games);
+
+    userStates.set(user.name, {
+      status: "playing",
+      currentGame: game,
+    });
+
+    return createNotification(user, "playing", "is now playing", game);
+  }
+
+  // 3) Playing -> achievement
+  if (playingUsers.length > 0 && roll < 0.88) {
+    const user = random(playingUsers);
+    const achievement =
+      randomExcept(data.achievements, excludeActions) ??
+      random(data.achievements);
+
+    return createNotification(
+      user,
+      "achievement",
+      "unlocked an achievement:",
+      achievement,
+    );
+  }
+
+  // 4) Playing/online -> invite
+  if ((playingUsers.length > 0 || onlineUsers.length > 0) && roll < 0.95) {
+    const candidates = [...playingUsers, ...onlineUsers];
+    const user = random(candidates);
+    const invite =
+      randomExcept(data.invites, excludeActions) ?? random(data.invites);
+
+    return createNotification(user, "invite", "sent you an invite:", invite);
+  }
+
+  // 5) Fallback -> message
+  {
+    const candidates = [...playingUsers, ...onlineUsers, ...offlineUsers];
+    const user =
+      candidates.length > 0 ? random(candidates) : random(availableUsers);
+    const message =
+      randomExcept(data.messages, excludeActions) ?? random(data.messages);
+
+    return createNotification(user, "message", "sent you a message:", message);
+  }
+}

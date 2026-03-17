@@ -15,7 +15,11 @@
   align-items: center;
   gap: 12px;
   padding: 12px 16px;
-  background: linear-gradient(135deg, rgba(42, 71, 94, 0.98) 0%, rgba(27, 40, 56, 0.98) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(42, 71, 94, 0.98) 0%,
+    rgba(27, 40, 56, 0.98) 100%
+  );
   border: 1px solid rgba(26, 159, 255, 0.3);
   border-radius: 4px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
@@ -124,6 +128,30 @@
   border-left: 3px solid #57cbde;
 }
 
+.steam-online-user {
+  color: #90ee90;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Green glowing dot */
+.steam-online-dot {
+  width: 8px;
+  height: 8px;
+  background: #57cb6c;
+  border-radius: 50%;
+  box-shadow:
+    0 0 4px #57cb6c,
+    0 0 8px rgba(87, 203, 108, 0.7);
+  flex-shrink: 0;
+}
+
+/* Optional Steam-like green message */
+.steam-notification-friend-online .steam-notification-message {
+  color: #a4d007;
+}
+
 .steam-notification.steam-notification-playing {
   border-left: 3px solid #90ba3c;
 }
@@ -146,7 +174,11 @@
 
 /* Cosmic Theme */
 body.CosmicTheme .steam-notification {
-  background: linear-gradient(135deg, rgba(57, 24, 61, 0.98) 0%, rgba(20, 60, 68, 0.98) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(57, 24, 61, 0.98) 0%,
+    rgba(20, 60, 68, 0.98) 100%
+  );
   border-color: rgba(248, 70, 180, 0.3);
 }
 

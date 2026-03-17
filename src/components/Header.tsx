@@ -224,7 +224,7 @@ function Header({ onOpenAchievements, onOpenInfo, onOpenWallet }: HeaderProps) {
               title="View Profile"
             >
               <img
-                src="https://media.discordapp.net/attachments/1033081052513710230/1190905766815727646/image3.jpg?ex=69b5016c&is=69b3afec&hm=d8748e2792d7fd21dbb1199c1edfb9f31874760a5e53d9fff367a80c8f7ef328&=&format=webp&width=1398&height=1398"
+                src="/cat_blanket.webp"
                 alt="Dang Tuan Duong"
                 className="user-avatar-img"
               />
@@ -260,19 +260,21 @@ function Header({ onOpenAchievements, onOpenInfo, onOpenWallet }: HeaderProps) {
               >
                 {t.projects}
               </a>
-              <a
-                href="#contact"
-                className={`nav-link ${activeSection === "contact" ? "active" : ""}`}
-                onClick={(e) => scrollToSection(e, "contact")}
-              >
-                {t.contact}
-              </a>
+
               <a
                 href="#skills"
                 className={`nav-link ${activeSection === "skills" ? "active" : ""}`}
                 onClick={(e) => scrollToSection(e, "skills")}
               >
                 {t.skills}
+              </a>
+
+              <a
+                href="#contact"
+                className={`nav-link ${activeSection === "contact" ? "active" : ""}`}
+                onClick={(e) => scrollToSection(e, "contact")}
+              >
+                {t.contact}
               </a>
             </nav>
           </div>

@@ -40,10 +40,26 @@
 
 body.CosmicTheme .content-wrapper {
   background:
-    radial-gradient(farthest-side at top right, var(--gradient-right), transparent 500px),
-    radial-gradient(farthest-corner at top left, var(--gradient-left), transparent 600px),
-    radial-gradient(farthest-corner at bottom right, var(--gradient-background-right), transparent 500px),
-    radial-gradient(farthest-corner at bottom left, var(--gradient-background-left), transparent 600px);
+    radial-gradient(
+      farthest-side at top right,
+      var(--gradient-right),
+      transparent 500px
+    ),
+    radial-gradient(
+      farthest-corner at top left,
+      var(--gradient-left),
+      transparent 600px
+    ),
+    radial-gradient(
+      farthest-corner at bottom right,
+      var(--gradient-background-right),
+      transparent 500px
+    ),
+    radial-gradient(
+      farthest-corner at bottom left,
+      var(--gradient-background-left),
+      transparent 600px
+    );
   background-color: var(--gradient-background);
 }
 
@@ -66,7 +82,11 @@ body.CosmicTheme .content-wrapper {
 
 /* Card styling */
 .card {
-  background: linear-gradient(135deg, rgba(42, 71, 94, 0.4) 0%, rgba(27, 40, 56, 0.4) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(42, 71, 94, 0.4) 0%,
+    rgba(27, 40, 56, 0.4) 100%
+  );
   border: 1px solid var(--border-color);
   border-radius: 4px;
   padding: 20px;
@@ -88,12 +108,16 @@ body.CosmicTheme .content-wrapper {
 @keyframes highlightPulse {
   0% {
     border-color: var(--accent-blue);
-    box-shadow: 0 0 30px rgba(26, 159, 255, 0.6), 0 0 60px rgba(26, 159, 255, 0.4);
+    box-shadow:
+      0 0 30px rgba(26, 159, 255, 0.6),
+      0 0 60px rgba(26, 159, 255, 0.4);
     transform: scale(1.02);
   }
   50% {
     border-color: var(--accent-blue-hover);
-    box-shadow: 0 0 40px rgba(26, 159, 255, 0.8), 0 0 80px rgba(26, 159, 255, 0.5);
+    box-shadow:
+      0 0 40px rgba(26, 159, 255, 0.8),
+      0 0 80px rgba(26, 159, 255, 0.5);
   }
   100% {
     border-color: var(--border-color);
@@ -109,12 +133,16 @@ body.CosmicTheme .highlight-pulse {
 @keyframes highlightPulseCosmic {
   0% {
     border-color: var(--btn-outline, rgba(140, 90, 142));
-    box-shadow: 0 0 30px rgba(248, 70, 180, 0.6), 0 0 60px rgba(9, 243, 99, 0.4);
+    box-shadow:
+      0 0 30px rgba(248, 70, 180, 0.6),
+      0 0 60px rgba(9, 243, 99, 0.4);
     transform: scale(1.02);
   }
   50% {
     border-color: rgba(248, 180, 220);
-    box-shadow: 0 0 40px rgba(248, 70, 180, 0.8), 0 0 80px rgba(9, 243, 99, 0.5);
+    box-shadow:
+      0 0 40px rgba(248, 70, 180, 0.8),
+      0 0 80px rgba(9, 243, 99, 0.5);
   }
   100% {
     border-color: var(--border-color);
@@ -171,4 +199,18 @@ body.CosmicTheme .card-header {
   .card {
     padding: 15px;
   }
+}
+
+body.CosmicTheme {
+  --btn-resume-primary: linear-gradient(
+    135deg,
+    rgba(255, 140, 0, 0.95),
+    rgba(255, 200, 80, 0.9)
+  );
+
+  --btn-resume-hover: linear-gradient(
+    135deg,
+    rgba(255, 160, 20, 1),
+    rgba(255, 210, 100, 1)
+  );
 }

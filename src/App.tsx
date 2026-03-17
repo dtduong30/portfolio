@@ -25,6 +25,7 @@ import {
 } from "./services/achievementService";
 import "./styles/App.css";
 import FeaturedProjects from "./components/FeaturedProjects";
+import { loadNotifications } from "./config/steamNotifications.config";
 
 function App() {
   const [showAchievementModal, setShowAchievementModal] = useState(false);
@@ -37,6 +38,7 @@ function App() {
   // Initialize achievement system
   useEffect(() => {
     initializeAchievementSystem();
+    loadNotifications();
 
     // Konami code tracking
     const handleKeyDown = (e: KeyboardEvent) => {
