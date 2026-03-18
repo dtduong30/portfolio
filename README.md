@@ -1,4 +1,4 @@
-## 🚀 Deployment Nịnh vợ 123
+## 🚀 Deployment Nịnh vợ
 
 ### Deploy to Vercel (Recommended)
 
