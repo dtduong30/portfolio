@@ -12,7 +12,7 @@ export const portfolioConfig: PortfolioConfig = {
   // Personal Information
   personal: {
     name: "Dang Tuan Duong",
-    title: "Fullstack Developer | Web Developer",
+    title: "Full-stack Developer",
     location: "Ho Chi Minh City, Vietnam",
     bio: "Full-stack developer specializing in NodeJS and React, passionate about building interactive web experiences with modern technologies",
     email: "dangtuanduong99@gmail.com",
@@ -121,57 +121,63 @@ export const portfolioConfig: PortfolioConfig = {
   hobbies: [
     {
       id: 1,
-      title: "Running",
-      description:
-        "Passionate about long-distance running and pushing physical limits",
-      icon: "🏃",
+      title: "Football",
+      description: "Chasing a ball like it owes me money",
+      icon: "⚽",
     },
     {
       id: 2,
-      title: "Perfume Collecting",
-      description: "Curating a diverse collection of unique fragrances",
-      icon: "🌸",
+      title: "Cooking",
+      description: "Enjoy making simple dishes and seeing people enjoy them",
+      icon: "👨‍🍳",
     },
     {
       id: 3,
-      title: "Casual Gamer",
-      description:
-        "Currently playing Hollow Knight: Silksong -- Digimon Story: Time Stranger is next on my backlog",
+      title: "Gaming",
+      description: "Saving virtual worlds, ignoring real responsibilities",
       icon: "🎮",
-      status: "Currently Active",
     },
     {
       id: 4,
-      title: "Creative Maker",
-      description:
-        "Creating stuff on a whim - always experimenting with new ideas",
-      icon: "✨",
+      title: "Billiards",
+      description: "Missing easy shots with absolute confidence",
+      icon: "🎱",
     },
     {
       id: 5,
-      title: "Melbourne Zoo Explorer",
-      description:
-        "Love travelling to Melbourne, Australia and exploring the amazing zoos",
-      icon: "🦘",
+      title: "Running",
+      description: "Running away from problems… and sometimes toward fitness",
+      icon: "🏃",
     },
     {
       id: 6,
-      title: "Whiskey Sour Enthusiast",
-      description:
-        "Appreciating the perfect balance of bourbon, lemon, and sugar",
-      icon: "🥃",
+      title: "Music",
+      description: "Always have music playing during my free time",
+      icon: "🎧",
     },
     {
       id: 7,
-      title: "Ointment Collector",
-      description: "Katinko, White Flower, and Poi Sian enthusiast",
-      icon: "💊",
+      title: "Anime",
+      description: "Emotionally invested in characters that don’t exist",
+      icon: "🎌",
     },
     {
       id: 8,
-      title: "Adobo Lover",
-      description: "Love all things adobo -- all variants welcome",
-      icon: "🍲",
+      title: "Movies",
+      description: "2 hours of life lessons I won’t apply",
+      icon: "🎬",
+    },
+    {
+      id: 9,
+      title: "Reading",
+      description: "Buying books faster than I read them",
+      icon: "📚",
+    },
+    {
+      id: 10,
+      title: "Technology",
+      description: "Curious about new tech and how things work",
+      icon: "💻",
     },
   ],
 

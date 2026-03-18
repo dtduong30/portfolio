@@ -1,45 +1,51 @@
-import { useEffect } from 'react'
-import './Showcases.css'
-import { portfolioConfig } from '../config/portfolio.config'
-import { unlockAchievement, trackSectionVisit } from '../services/achievementService'
-import { useLanguage } from '../contexts/LanguageContext'
+import { useEffect } from "react";
+import "./Showcases.css";
+import { portfolioConfig } from "../config/portfolio.config";
+import {
+  unlockAchievement,
+  trackSectionVisit,
+} from "../services/achievementService";
+import { useLanguage } from "../contexts/LanguageContext";
 
 function PersonalHobbies() {
-  const { t } = useLanguage()
+  const { t } = useLanguage();
 
   // Track section visits with Intersection Observer
   useEffect(() => {
-    const hobbiesSection = document.querySelector('.hobbies-showcase')
+    const hobbiesSection = document.querySelector(".hobbies-showcase");
 
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting && entry.target.classList.contains('hobbies-showcase')) {
-            trackSectionVisit('hobbies')
+        entries.forEach((entry) => {
+          if (
+            entry.isIntersecting &&
+            entry.target.classList.contains("hobbies-showcase")
+          ) {
+            trackSectionVisit("hobbies");
           }
-        })
+        });
       },
-      { threshold: 0.1 }
-    )
+      { threshold: 0.1 },
+    );
 
-    if (hobbiesSection) observer.observe(hobbiesSection)
+    if (hobbiesSection) observer.observe(hobbiesSection);
 
     return () => {
-      if (hobbiesSection) observer.unobserve(hobbiesSection)
-    }
-  }, [])
+      if (hobbiesSection) observer.unobserve(hobbiesSection);
+    };
+  }, []);
 
   return (
     <section className="showcase-card card hobbies-showcase">
       <div className="card-header">{t.personalHobbies}</div>
       <div className="hobbies-grid">
-        {portfolioConfig.hobbies.map(hobby => (
+        {portfolioConfig.hobbies.map((hobby) => (
           <div
             key={hobby.id}
             className="hobby-card"
             onClick={() => {
               if (hobby.id === 3) {
-                unlockAchievement('fellow-gamer')
+                unlockAchievement("fellow-gamer");
               }
             }}
           >
@@ -57,7 +63,7 @@ function PersonalHobbies() {
         ))}
       </div>
     </section>
-  )
+  );
 }
 
-export default PersonalHobbies
+export default PersonalHobbies;

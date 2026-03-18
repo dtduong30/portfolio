@@ -136,7 +136,7 @@ export const translations: Record<Language, Translations> = {
     footerAbout: "About",
     footerTagline:
       "Steam-inspired portfolio showcasing projects and achievements",
-    footerCopyright: "© 2025 Victor Zyon Tiangson. All rights reserved.",
+    footerCopyright: "© 2026 Dang Tuan Duong. All rights reserved.",
     footerMadeWith: "Made with my Steam profile inspiration",
 
     replayTitle: "GitHub Replay",
@@ -177,7 +177,7 @@ export const translations: Record<Language, Translations> = {
     contact: "Contact (I'll Respond, Promise)",
     skills: "Skills (World-Class, Obviously)",
     info: "Info (Spoilers)",
-    portfolioTitle: "ZYON'S HUMBLE PORTFOLIO",
+    portfolioTitle: "DANG TUAN DUONG'S PORTFOLIO",
 
     developerLevel: "Developer Level (Self-Proclaimed)",
     yearsOfExperience: "Years of Pretending",
@@ -187,7 +187,7 @@ export const translations: Record<Language, Translations> = {
     achievements: "Participation Trophies",
     workStatus: "Definitely not desperate for opportunities",
     profileDescription:
-      "Just another genius from the Philippines (humble brag) -- allegedly leading a team while mostly Googling .NET errors. Wore the Scrum Master hat once, got some PDFs to prove it.\n\nSupposedly passionate about revolutionary ideas (read: copied from StackOverflow) and fresh perspectives (Ctrl+C, Ctrl+V). Off the clock, I'm just a guy pretending to enjoy continuous self-improvement.",
+      "Just another genius from the Vietnam (humble brag) -- allegedly leading a team while mostly Googling errors and LLM response supervisor. \nSupposedly passionate about revolutionary ideas (read: copied from StackOverflow) and fresh perspectives (Ctrl+C, Ctrl+V). Off the clock, I'm just a guy pretending to enjoy continuous self-improvement.",
 
     recentActivity: "Recent Excuses",
     contributions: "attempts at productivity",
@@ -219,7 +219,7 @@ export const translations: Record<Language, Translations> = {
     footerTagline:
       "Yet another portfolio pretending to be unique (Steam-inspired edition)",
     footerCopyright:
-      "© 2025 Victor Zyon Tiangson. All rights reserved (not that anyone cares).",
+      "© 2026 Dang Tuan Duong Vip Pro. All rights reserved (not that anyone cares).",
     footerMadeWith: "Built with questionable decisions and Steam copying",
 
     replayTitle: "GitHub Replay (Your Annual Highlight Reel)",
@@ -254,105 +254,13 @@ export const translations: Record<Language, Translations> = {
     replayGrowthFooter: 'That was your {year} in "achievement" (sure...)',
   },
 
-  binary: {
-    profile: "01010000 01110010 01101111",
-    projects: "01010000 01110010 01101111 01101010",
-    contact: "01000011 01101111 01101110",
-    skills: "01010011 01101011 01101001",
-    info: "01001001 01101110 01100110",
-    portfolioTitle: "01011010 01011001 01001111 01001110",
-
-    developerLevel: "01000100 01100101 01110110",
-    yearsOfExperience: "01011001 01100101 01100001",
-    repositories: "01010010 01100101 01110000",
-    followers: "01000110 01101111 01101100",
-    totalStars: "01010011 01110100 01100001",
-    achievements: "01000001 01100011 01101000",
-    workStatus:
-      "01001110 01101111 00100000 01110111 01101111 01110010 01101011",
-    profileDescription:
-      "01000100 01100101 01110110 01100101 01101100 01101111 01110000 01100101 01110010...",
-
-    recentActivity: "01000001 01100011 01110100",
-    contributions: "01100011 01101111 01101110 01110100",
-    viewAllActivity: "01110110 01101001 01100101 01110111",
-    featuredProjects: "01000110 01100101 01100001 01110100",
-    achievementShowcase: "01000001 01100011 01101000 01101001",
-    personalHobbies: "01001000 01101111 01100010 01100010",
-    technicalSkills: "01010100 01100101 01100011 01101000",
-    connectWithMe: "01000011 01101111 01101110 01101110",
-    githubFollowers: "01000111 01101001 01110100 01001000",
-
-    viewResume: "01010010 01100101 01110011",
-    viewAll: "01000001 01101100 01101100",
-    sendMessage: "01001101 01110011 01100111",
-
-    level: "01001100 01110110 01101100",
-    developer: "01000100 01100101 01110110",
-
-    loading: "01001100 01101111 01100001 01100100",
-    more: "01001101 01101111 01110010 01100101",
-    less: "01001100 01100101 01110011 01110011",
-
-    allTab: "01000001 01101100 01101100",
-    unlockedTab: "01010101 01101110 01101100",
-    lockedTab: "01001100 01101111 01100011 01101011",
-
-    footerQuickLinks: "01010001 01110101 01101001 01100011 01101011",
-    footerAbout: "01000001 01100010 01101111 01110101 01110100",
-    footerTagline: "01010011 01110100 01100101 01100001 01101101...",
-    footerCopyright: "00101110 00101110 00101110",
-    footerMadeWith: "01001101 01100001 01100100 01100101",
-
-    replayTitle: "01010010 01100101 01110000 01101100 01100001 01111001",
-    replayLoading: "01001100 01101111 01100001 01100100...",
-    replayError: "01000101 01110010 01110010 01101111 01110010",
-    replayOverviewTitle: "01011001 01100101 01100001 01110010",
-    replayOverviewCommits: "01000011 01101111 01101101 01101101",
-    replayOverviewMostActiveMonth:
-      "01001101 01101111 01101110 01110100 01101000",
-    replayOverviewLongestStreak:
-      "01010011 01110100 01110010 01100101 01100001 01101011",
-    replayOverviewDaysCoded: "01000100 01100001 01111001 01110011",
-    replayLanguageTitle: "01001100 01100001 01101110 01100111",
-    replayLanguageSubtitle:
-      "01010111 01101001 01111010 01100001 01110010 01100100",
-    replayImpactTitle: "01001001 01101101 01110000 01100001 01100011 01110100",
-    replayImpactStarsEarned: "01010011 01110100 01100001 01110010 01110011",
-    replayImpactForks: "01000110 01101111 01110010 01101011 01110011",
-    replayImpactReposCreated: "01010010 01100101 01110000 01101111 01110011",
-    replayImpactTopRepo: "01010100 01101111 01110000",
-    replayProductivityTitle: "01010000 01110010 01101111 01100100",
-    replayProductivityMostProductiveDay: "01000100 01100001 01111001",
-    replayProductivityPeakHour: "01001000 01101111 01110101 01110010",
-    replayProductivityNightOwl: "01001110 01101001 01100111 01101000 01110100",
-    replayProductivityWeekendWarrior:
-      "01010111 01100101 01100101 01101011 01100101 01101110 01100100",
-    replayCollaborationTitle:
-      "01000011 01101111 01101100 01101100 01100001 01100010",
-    replayCollaborationPrsCreated: "01010000 01010010 01110011",
-    replayCollaborationPrsMerged:
-      "01001101 01100101 01110010 01100111 01100101 01100100",
-    replayCollaborationIssuesClosed:
-      "01001001 01110011 01110011 01110101 01100101 01110011",
-    replayCollaborationTopCollabRepo:
-      "01010100 01101111 01110000 01010010 01100101 01110000 01101111",
-    replayGrowthTitle: "01000111 01110010 01101111 01110111 01110100 01101000",
-    replayGrowthFollowers:
-      "01000110 01101111 01101100 01101100 01101111 01110111",
-    replayGrowthTotalRepos: "01010010 01100101 01110000 01101111 01110011",
-    replayGrowthContributionGraph:
-      "01001000 01100101 01100001 01110100 01101101 01100001 01110000",
-    replayGrowthFooter: "01011001 01100101 01100001 01110010 00100001",
-  },
-
   emoji: {
     profile: "👤",
     projects: "💼",
     contact: "📧",
     skills: "🎯",
     info: "ℹ️",
-    portfolioTitle: "🎨 ZYON 🚀",
+    portfolioTitle: "🎨 DUONG VIPPRO 🚀",
 
     developerLevel: "👨‍💻 📊",
     yearsOfExperience: "📅 ⏳",
@@ -361,7 +269,7 @@ export const translations: Record<Language, Translations> = {
     totalStars: "⭐",
     achievements: "🏆",
     workStatus: "🚫 💼",
-    profileDescription: "🇵🇭 👨‍💻 .NET 💻 Scrum Master 📋...",
+    profileDescription: "🇻🇳 👨‍💻 💻 📋...",
 
     recentActivity: "⚡ 📋",
     contributions: "🎯",

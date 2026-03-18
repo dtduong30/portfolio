@@ -208,6 +208,8 @@ function Header({ onOpenAchievements, onOpenInfo, onOpenWallet }: HeaderProps) {
                     <span className="account-name">duongvippro3011</span>
                   </button>
 
+                  {/* TODO: Change language */}
+
                   <button
                     className="dropdown-item dropdown-signout"
                     onClick={() => (window.location.href = "/satire-signout")}
