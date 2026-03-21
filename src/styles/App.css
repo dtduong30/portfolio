@@ -39,7 +39,7 @@
 }
 
 body.CosmicTheme .content-wrapper {
-  background:
+  /* background:
     radial-gradient(
       farthest-side at top right,
       var(--gradient-right),
@@ -60,7 +60,9 @@ body.CosmicTheme .content-wrapper {
       var(--gradient-background-left),
       transparent 600px
     );
-  background-color: var(--gradient-background);
+  background-color: var(--gradient-background); */
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
 }
 
 .content-wrapper > * {
