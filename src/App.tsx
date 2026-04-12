@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import ProfileOverview from "./components/ProfileOverview";
 import AchievementToast from "./components/AchievementToast";
 import SteamNotification from "./components/SteamNotification";
+import ProjectShowcase from "./components/ProjectShowcase";
 import Footer from "./components/Footer";
 
 // Lazy load below-the-fold and modal components
@@ -24,7 +25,7 @@ import {
   trackKonamiKey,
 } from "./services/achievementService";
 import "./styles/App.css";
-import FeaturedProjects from "./components/FeaturedProjects";
+// import FeaturedProjects from "./components/FeaturedProjects";
 import { loadNotifications } from "./config/steamNotifications.config";
 
 function App() {
@@ -80,8 +81,8 @@ function App() {
           <div className="content-wrapper">
             <div className="main-content">
               <ProfileOverview />
-              <FeaturedProjects />
-              {/* <GitHubReplay /> */}
+              {/* <FeaturedProjects /> */}
+              <ProjectShowcase />
               {/* <AchievementsShowcase /> */}
               <Suspense fallback={null}>
                 <TechnicalSkills />

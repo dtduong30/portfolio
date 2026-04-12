@@ -1,6 +1,6 @@
 /* Footer Container */
 .footer {
-  margin-top: 60px;
+  margin-top: 200px;
   border-top: 2px solid var(--border-color);
   background: transparent;
   backdrop-filter: blur(10px);
@@ -44,41 +44,31 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 16px;
 }
 
 .footer-link {
-  background: none;
-  border: none;
+  background: rgba(26, 159, 255, 0.05);
+  border: 1px solid rgba(26, 159, 255, 0.15);
+  border-radius: 4px;
   color: var(--text-secondary);
   font-size: 14px;
-  text-align: left;
+  text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  padding: 4px 0;
+  padding: 8px 12px;
   position: relative;
-}
-
-.footer-link::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 2px;
-  background: var(--accent-blue);
-  transition: width 0.3s ease;
+  white-space: nowrap;
 }
 
 .footer-link:hover {
   color: var(--accent-blue-hover);
-  padding-left: 8px;
-}
-
-.footer-link:hover::before {
-  width: 100%;
+  background: rgba(26, 159, 255, 0.15);
+  border-color: var(--accent-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(26, 159, 255, 0.2);
 }
 
 /* Social Links */
@@ -188,12 +178,16 @@ body.CosmicTheme .footer-heading {
   color: rgba(248, 180, 220);
 }
 
-body.CosmicTheme .footer-link::before {
-  background: rgba(248, 70, 180);
+body.CosmicTheme .footer-link {
+  background: rgba(248, 70, 180, 0.05);
+  border-color: rgba(248, 70, 180, 0.15);
 }
 
 body.CosmicTheme .footer-link:hover {
   color: rgba(248, 180, 220);
+  background: rgba(248, 70, 180, 0.15);
+  border-color: rgba(248, 70, 180, 0.5);
+  box-shadow: 0 2px 8px rgba(248, 70, 180, 0.2);
 }
 
 body.CosmicTheme .footer-social-link {
@@ -251,12 +245,18 @@ body.CosmicTheme .footer-bottom {
     font-size: 14px;
   }
 
+  .footer-links {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
   .footer-link {
-    font-size: 14px;
-    padding: 6px 0;
-    min-height: 36px;
+    font-size: 13px;
+    padding: 10px 8px;
+    min-height: 40px;
     display: flex;
     align-items: center;
+    justify-content: center;
   }
 
   .footer-social-link {

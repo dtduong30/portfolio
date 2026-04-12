@@ -56,37 +56,14 @@ export interface Translations {
   footerCopyright: string;
   footerMadeWith: string;
 
-  // GitHub Replay
-  replayTitle: string;
-  replayLoading: string;
-  replayError: string;
-  replayOverviewTitle: string;
-  replayOverviewCommits: string;
-  replayOverviewMostActiveMonth: string;
-  replayOverviewLongestStreak: string;
-  replayOverviewDaysCoded: string;
-  replayLanguageTitle: string;
-  replayLanguageSubtitle: string;
-  replayImpactTitle: string;
-  replayImpactStarsEarned: string;
-  replayImpactForks: string;
-  replayImpactReposCreated: string;
-  replayImpactTopRepo: string;
-  replayProductivityTitle: string;
-  replayProductivityMostProductiveDay: string;
-  replayProductivityPeakHour: string;
-  replayProductivityNightOwl: string;
-  replayProductivityWeekendWarrior: string;
-  replayCollaborationTitle: string;
-  replayCollaborationPrsCreated: string;
-  replayCollaborationPrsMerged: string;
-  replayCollaborationIssuesClosed: string;
-  replayCollaborationTopCollabRepo: string;
-  replayGrowthTitle: string;
-  replayGrowthFollowers: string;
-  replayGrowthTotalRepos: string;
-  replayGrowthContributionGraph: string;
-  replayGrowthFooter: string;
+  // Project Showcase
+  showcaseTitle: string;
+  showcasePosition: string;
+  showcaseTeamSize: string;
+  showcaseMembers: string;
+  showcaseTechStack: string;
+  showcaseOverview: string;
+  showcaseKeyContributions: string;
 }
 
 export const translations: Record<Language, Translations> = {
@@ -139,36 +116,13 @@ export const translations: Record<Language, Translations> = {
     footerCopyright: "© 2026 Dang Tuan Duong. All rights reserved.",
     footerMadeWith: "Made with my Steam profile inspiration",
 
-    replayTitle: "GitHub Replay",
-    replayLoading: "Loading your replay...",
-    replayError: "Unable to load replay stats",
-    replayOverviewTitle: "Your Year in Code",
-    replayOverviewCommits: "Total Commits",
-    replayOverviewMostActiveMonth: "Most Active Month",
-    replayOverviewLongestStreak: "Longest Streak",
-    replayOverviewDaysCoded: "Days Coded",
-    replayLanguageTitle: "Language Mastery",
-    replayLanguageSubtitle: "You're a {language} wizard!",
-    replayImpactTitle: "Your Impact",
-    replayImpactStarsEarned: "Stars Earned",
-    replayImpactForks: "Forks Gained",
-    replayImpactReposCreated: "Repos Created",
-    replayImpactTopRepo: "Top Starred Repository",
-    replayProductivityTitle: "Productivity Patterns",
-    replayProductivityMostProductiveDay: "Most Productive Day",
-    replayProductivityPeakHour: "Peak Coding Hour",
-    replayProductivityNightOwl: "Night Owl",
-    replayProductivityWeekendWarrior: "Weekend Warrior",
-    replayCollaborationTitle: "Collaboration Stats",
-    replayCollaborationPrsCreated: "PRs Created",
-    replayCollaborationPrsMerged: "PRs Merged",
-    replayCollaborationIssuesClosed: "Issues Closed",
-    replayCollaborationTopCollabRepo: "Most Collaborated",
-    replayGrowthTitle: "Your Growth Story",
-    replayGrowthFollowers: "Followers",
-    replayGrowthTotalRepos: "Total Repositories",
-    replayGrowthContributionGraph: "Contribution Heatmap",
-    replayGrowthFooter: "That was your {year} in code!",
+    showcaseTitle: "Projects",
+    showcasePosition: "Position",
+    showcaseTeamSize: "Team Size",
+    showcaseMembers: "members",
+    showcaseTechStack: "Tech Stack",
+    showcaseOverview: "Overview",
+    showcaseKeyContributions: "Key Contributions",
   },
 
   sarcasm: {
@@ -222,36 +176,13 @@ export const translations: Record<Language, Translations> = {
       "© 2026 Dang Tuan Duong Vip Pro. All rights reserved (not that anyone cares).",
     footerMadeWith: "Built with questionable decisions and Steam copying",
 
-    replayTitle: "GitHub Replay (Your Annual Highlight Reel)",
-    replayLoading: "Pretending to compile your achievements...",
-    replayError: "Failed to load your mediocre stats",
-    replayOverviewTitle: 'Your Year in "Productivity"',
-    replayOverviewCommits: "Code Submissions",
-    replayOverviewMostActiveMonth: "Least Lazy Month",
-    replayOverviewLongestStreak: "Lucky Streak",
-    replayOverviewDaysCoded: "Days Pretending to Work",
-    replayLanguageTitle: 'Language "Expertise"',
-    replayLanguageSubtitle: "You copy-pasted {language} a lot!",
-    replayImpactTitle: 'Your "Impact"',
-    replayImpactStarsEarned: "Pity Stars Collected",
-    replayImpactForks: "Desperate Forks",
-    replayImpactReposCreated: "Repos Abandoned",
-    replayImpactTopRepo: "Least Embarrassing Repo",
-    replayProductivityTitle: "Procrastination Patterns",
-    replayProductivityMostProductiveDay: "Least Unproductive Day",
-    replayProductivityPeakHour: "Deadline Panic Hour",
-    replayProductivityNightOwl: "Insomniac Coder",
-    replayProductivityWeekendWarrior: "No-Life Developer",
-    replayCollaborationTitle: "Social Coding (Kinda)",
-    replayCollaborationPrsCreated: "PRs Thrown Into Void",
-    replayCollaborationPrsMerged: "PRs Actually Accepted",
-    replayCollaborationIssuesClosed: "Problems Swept Under Rug",
-    replayCollaborationTopCollabRepo: "Most Bothered Project",
-    replayGrowthTitle: 'Your "Progress"',
-    replayGrowthFollowers: "Random Followers",
-    replayGrowthTotalRepos: "Code Graveyards",
-    replayGrowthContributionGraph: "Green Squares of Shame",
-    replayGrowthFooter: 'That was your {year} in "achievement" (sure...)',
+    showcaseTitle: "Projects I Totally Led (Sure)",
+    showcasePosition: "Fancy Title",
+    showcaseTeamSize: "People I Annoyed",
+    showcaseMembers: "victims",
+    showcaseTechStack: "Buzzwords I Googled",
+    showcaseOverview: "The Excuse",
+    showcaseKeyContributions: "Things I Take Credit For",
   },
 
   emoji: {
@@ -302,36 +233,13 @@ export const translations: Record<Language, Translations> = {
     footerCopyright: "© 2025 👨‍💻 ✨",
     footerMadeWith: "❤️ 🎮",
 
-    replayTitle: "🎮 🔄 📊",
-    replayLoading: "⏳ 📊...",
-    replayError: "❌ 📊",
-    replayOverviewTitle: "📅 💻 🎯",
-    replayOverviewCommits: "📝 ✅",
-    replayOverviewMostActiveMonth: "🔥 📅",
-    replayOverviewLongestStreak: "🏃 🔥",
-    replayOverviewDaysCoded: "📆 💻",
-    replayLanguageTitle: "💻 🎯",
-    replayLanguageSubtitle: "🧙 {language} ⭐",
-    replayImpactTitle: "💥 📊",
-    replayImpactStarsEarned: "⭐ 📈",
-    replayImpactForks: "🍴 📈",
-    replayImpactReposCreated: "📦 ➕",
-    replayImpactTopRepo: "🏆 📦",
-    replayProductivityTitle: "⏰ 📊",
-    replayProductivityMostProductiveDay: "🔥 📅",
-    replayProductivityPeakHour: "⏰ 🎯",
-    replayProductivityNightOwl: "🌙 🦉",
-    replayProductivityWeekendWarrior: "🏖️ ⚔️",
-    replayCollaborationTitle: "🤝 📊",
-    replayCollaborationPrsCreated: "🔀 ➕",
-    replayCollaborationPrsMerged: "✅ 🔀",
-    replayCollaborationIssuesClosed: "✅ 🐛",
-    replayCollaborationTopCollabRepo: "🏆 🤝",
-    replayGrowthTitle: "📈 🌟",
-    replayGrowthFollowers: "👥 📈",
-    replayGrowthTotalRepos: "📦 📊",
-    replayGrowthContributionGraph: "🟩 📊",
-    replayGrowthFooter: "🎉 {year} 💻 ✨",
+    showcaseTitle: "💼 🏢",
+    showcasePosition: "👔",
+    showcaseTeamSize: "👥",
+    showcaseMembers: "👤",
+    showcaseTechStack: "🛠️",
+    showcaseOverview: "📋",
+    showcaseKeyContributions: "⭐ 🎯",
   },
 
   lorem: {
@@ -383,36 +291,13 @@ export const translations: Record<Language, Translations> = {
     footerCopyright: "© MMXXV Victor Zyon Tiangson. Omnia iura reservata.",
     footerMadeWith: "Factum cum Steam inspiratio",
 
-    replayTitle: "Lorem Replay Ipsum",
-    replayLoading: "Lorem ipsum expectans...",
-    replayError: "Error lorem ipsum dolor",
-    replayOverviewTitle: "Annus In Codex",
-    replayOverviewCommits: "Summa Commits",
-    replayOverviewMostActiveMonth: "Mensis Activus",
-    replayOverviewLongestStreak: "Longissima Series",
-    replayOverviewDaysCoded: "Dies Codex",
-    replayLanguageTitle: "Lingua Dominatio",
-    replayLanguageSubtitle: "Tu es {language} magister!",
-    replayImpactTitle: "Tuum Impactus",
-    replayImpactStarsEarned: "Stellae Acquisitae",
-    replayImpactForks: "Furcae Acquisitae",
-    replayImpactReposCreated: "Repositoria Creata",
-    replayImpactTopRepo: "Summus Repositorium",
-    replayProductivityTitle: "Productivitas Patterns",
-    replayProductivityMostProductiveDay: "Dies Productivissimus",
-    replayProductivityPeakHour: "Hora Culminis",
-    replayProductivityNightOwl: "Noctis Codificator",
-    replayProductivityWeekendWarrior: "Bellator Sabbati",
-    replayCollaborationTitle: "Collaboratio Statisticae",
-    replayCollaborationPrsCreated: "PR Creatae",
-    replayCollaborationPrsMerged: "PR Fusae",
-    replayCollaborationIssuesClosed: "Quaestiones Clausae",
-    replayCollaborationTopCollabRepo: "Maxime Collaboratum",
-    replayGrowthTitle: "Historia Crescentiae",
-    replayGrowthFollowers: "Sequentes",
-    replayGrowthTotalRepos: "Summa Repositoria",
-    replayGrowthContributionGraph: "Contributio Mappa",
-    replayGrowthFooter: "Ille fuit tuus {year} in codice!",
+    showcaseTitle: "Projectum Experientia",
+    showcasePosition: "Positio",
+    showcaseTeamSize: "Magnitudo Turmae",
+    showcaseMembers: "membra",
+    showcaseTechStack: "Technologia Acervus",
+    showcaseOverview: "Conspectus",
+    showcaseKeyContributions: "Clavis Contributiones",
   },
 
   youngStunnah: {
@@ -466,36 +351,13 @@ export const translations: Record<Language, Translations> = {
       "© 2025 Victor Zyon Tiangson. Respeto lang sa copyright ha.",
     footerMadeWith: "Gawa gamit ang Steam vibes",
 
-    replayTitle: "GitHub Replay Ko",
-    replayLoading: "Sandali, hinihimas yung data...",
-    replayError: "Ayaw mag-load ng stats bro",
-    replayOverviewTitle: "Taon Mo sa Pag-code",
-    replayOverviewCommits: "Kabuuang Commits",
-    replayOverviewMostActiveMonth: "Pinaka-Active na Buwan",
-    replayOverviewLongestStreak: "Pinaka-Mahabang Streak",
-    replayOverviewDaysCoded: "Araw na Nag-code",
-    replayLanguageTitle: "Language Expert Ka",
-    replayLanguageSubtitle: "Lodi ka talaga sa {language}!",
-    replayImpactTitle: "Impact Mo Pre",
-    replayImpactStarsEarned: "Stars na Nakuha",
-    replayImpactForks: "Forks na Nakuha",
-    replayImpactReposCreated: "Repos na Ginawa",
-    replayImpactTopRepo: "Top Starred Repo Mo",
-    replayProductivityTitle: "Productivity Habits",
-    replayProductivityMostProductiveDay: "Pinaka-Productive Day",
-    replayProductivityPeakHour: "Peak Coding Oras",
-    replayProductivityNightOwl: "Puyat King",
-    replayProductivityWeekendWarrior: "Weekend Grinder",
-    replayCollaborationTitle: "Collab Stats",
-    replayCollaborationPrsCreated: "PRs Ginawa",
-    replayCollaborationPrsMerged: "PRs Na-merge",
-    replayCollaborationIssuesClosed: "Issues Na-close",
-    replayCollaborationTopCollabRepo: "Pinaka-Collab Repo",
-    replayGrowthTitle: "Growth Story Mo",
-    replayGrowthFollowers: "Mga Tropa",
-    replayGrowthTotalRepos: "Total Repos",
-    replayGrowthContributionGraph: "Contribution Heatmap",
-    replayGrowthFooter: "Yan ang {year} mo sa pag-code, lodi!",
+    showcaseTitle: "Mga Project Ko Lodi",
+    showcasePosition: "Position Ko",
+    showcaseTeamSize: "Kasama Ko",
+    showcaseMembers: "tropa",
+    showcaseTechStack: "Tech na Ginamit",
+    showcaseOverview: "Kwento",
+    showcaseKeyContributions: "Mga Gawa Ko",
   },
 };
 

@@ -218,3 +218,50 @@ export interface GitHubReplayStats {
   repoGrowth: number;
   contributionDays: number[][];
 }
+
+// Project Showcase Types
+export interface ProjectExperience {
+  id: string;
+  name: string;
+  period: string;
+  position: string;
+  teamSize: number;
+  techStack: string[];
+  overview: string;
+  keyContributions: string[];
+  logo?: string;
+}
+
+export interface SteamNotification {
+  id: string;
+  type: "friend-online" | "playing" | "invite" | "achievement" | "message";
+  avatar?: string;
+  name: string;
+  message: string;
+  action?: string;
+}
+
+export interface NotificationData {
+  users: { name: string; avatar?: string }[];
+  games: string[];
+  achievements: string[];
+  invites: string[];
+  messages: string[];
+  templates: {
+    type: SteamNotification["type"];
+    message: string;
+    action?: string;
+  }[];
+}
+
+export interface NotificationOptions {
+  excludeUsers?: string[];
+  excludeActions?: string[];
+}
+
+export type UserPresenceState = "offline" | "online" | "playing";
+
+export interface UserState {
+  status: UserPresenceState;
+  currentGame?: string;
+}

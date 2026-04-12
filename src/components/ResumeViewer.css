@@ -5,7 +5,7 @@
 .resume-actions {
   display: flex;
   gap: 8px;
-  margin-bottom: 0;
+  margin-bottom: 15px;
   flex-wrap: wrap;
 }
 

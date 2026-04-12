@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 import "./SteamNotification.css";
-import {
-  getRandomNotification,
-  SteamNotification as NotificationType,
-} from "../config/steamNotifications.config";
+import { getRandomNotification } from "../config/steamNotifications.config";
+import { SteamNotification as NotificationType } from "../types";
 
 interface ActiveNotification extends NotificationType {
   timestamp: number;
