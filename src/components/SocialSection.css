@@ -139,6 +139,15 @@
   .social-links {
     grid-template-columns: repeat(4, 1fr);
   }
+
+  .social-link {
+    padding: 14px;
+    min-height: 44px;
+  }
+
+  .count-number {
+    font-size: 28px;
+  }
 }
 
 .contact-info {
@@ -182,5 +191,13 @@
 @media (max-width: 640px) {
   .social-links {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .count-number {
+    font-size: 24px;
+  }
+
+  .connections-count {
+    padding: 16px;
   }
 }

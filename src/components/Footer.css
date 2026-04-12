@@ -174,9 +174,10 @@ body.CosmicTheme .footer {
   border-top-color: rgba(248, 70, 180, 0.3);
   background: linear-gradient(
     to bottom,
-    rgba(46, 13, 36, 0.98),
-    rgba(57, 24, 61, 0.98)
+    rgba(46, 13, 36, 0.75),
+    rgba(57, 24, 61, 0.65)
   );
+  backdrop-filter: blur(12px);
 }
 
 body.CosmicTheme .footer-top {
@@ -208,7 +209,7 @@ body.CosmicTheme .footer-social-link:hover {
 }
 
 body.CosmicTheme .footer-bottom {
-  background: rgba(46, 13, 36, 0.5);
+  background: rgba(46, 13, 36, 0.3);
 }
 
 /* Responsive Design */
@@ -242,17 +243,25 @@ body.CosmicTheme .footer-bottom {
     padding: 24px 0;
   }
 
+  .footer-container {
+    padding: 0 12px;
+  }
+
   .footer-heading {
     font-size: 14px;
   }
 
   .footer-link {
-    font-size: 13px;
+    font-size: 14px;
+    padding: 6px 0;
+    min-height: 36px;
+    display: flex;
+    align-items: center;
   }
 
   .footer-social-link {
-    width: 36px;
-    height: 36px;
+    width: 44px;
+    height: 44px;
   }
 
   .footer-social-link svg {

@@ -356,4 +356,16 @@ body.CosmicTheme .stat-badge-xp {
     font-size: 11px;
     padding: 5px 10px;
   }
+
+  .stat-badge {
+    padding: 10px 14px;
+  }
+
+  .stat-badge-value {
+    font-size: 20px;
+  }
+
+  .stat-badge-label {
+    font-size: 10px;
+  }
 }

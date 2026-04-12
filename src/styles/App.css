@@ -19,6 +19,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+  padding-bottom: 120px;
 }
 
 .content-wrapper {
@@ -200,6 +201,25 @@ body.CosmicTheme .card-header {
 
   .card {
     padding: 15px;
+  }
+
+  .content-wrapper {
+    padding: 10px;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 380px) {
+  .container {
+    padding: 6px;
+  }
+
+  .card {
+    padding: 12px;
+  }
+
+  .content-wrapper {
+    padding: 8px;
   }
 }
 

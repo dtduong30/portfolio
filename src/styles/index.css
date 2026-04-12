@@ -69,3 +69,46 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-blue);
 }
+
+/* Disable hover effects on touch devices to prevent sticky hover states */
+@media (hover: none) {
+  .card:hover {
+    border-color: var(--border-color);
+    box-shadow: none;
+  }
+
+  .profile-overview.card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .avatar-container:hover {
+    transform: none;
+  }
+
+  .stat-badge:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .social-link:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .testimonial:hover {
+    transform: none;
+  }
+
+  .footer-social-link:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+/* Safe area insets for notched phones */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .footer-bottom {
+    padding-bottom: calc(20px + env(safe-area-inset-bottom));
+  }
+}
