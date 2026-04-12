@@ -601,5 +601,33 @@ body.CosmicTheme .dropdown-submenu-item:hover {
 
   .nav-link {
     font-size: 12px;
+    padding: 8px 0;
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+  }
+
+  .dropdown-submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: auto;
+  }
+
+  .user-dropdown-menu {
+    right: -10px;
+    max-width: calc(100vw - 20px);
+  }
+
+  .dropdown-item {
+    padding: 12px 15px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  .dropdown-submenu-item {
+    padding: 12px 15px;
+    min-height: 44px;
   }
 }

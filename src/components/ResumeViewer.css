@@ -1,64 +1,58 @@
 .resume-viewer {
-  overflow: hidden;
-}
-
-.resume-header-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
+  overflow: visible;
 }
 
 .resume-actions {
   display: flex;
   gap: 8px;
-  margin-left: auto;
+  margin-bottom: 0;
+  flex-wrap: wrap;
 }
 
 .resume-btn {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
+  gap: 5px;
+  padding: 5px 10px;
   border-radius: 3px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
   border: 1px solid var(--border-color);
   background: rgba(27, 40, 56, 0.6);
-  color: var(--text-primary);
+  color: var(--text-secondary);
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .resume-btn:hover {
-  border-color: var(--accent-blue);
-  color: var(--accent-blue-hover);
-  transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(26, 159, 255, 0.2);
+  border-color: rgba(240, 67, 9, 0.6);
+  color: rgb(255, 160, 80);
+  background: rgba(240, 67, 9, 0.1);
 }
 
 .download-btn {
-  background: var(--accent-blue);
-  border-color: var(--accent-blue);
-  color: white;
+  background: rgba(240, 67, 9, 0.12);
+  border-color: rgba(240, 67, 9, 0.5);
+  color: rgb(255, 160, 80);
 }
 
 .download-btn:hover {
-  background: var(--accent-blue-hover);
-  border-color: var(--accent-blue-hover);
-  color: white;
+  background: rgba(240, 67, 9, 0.2);
+  border-color: rgba(240, 67, 9, 0.7);
+  color: rgb(255, 200, 120);
 }
 
 /* Cosmic Theme Buttons */
 body.CosmicTheme .download-btn {
-  background: var(--btn-background, rgb(90, 40, 92));
+  background: rgba(248, 70, 180, 0.15);
   border-color: var(--btn-outline, rgba(140, 90, 142));
+  color: rgba(248, 180, 220);
 }
 
 body.CosmicTheme .download-btn:hover {
-  background: var(--btn-background-hover, rgb(100, 50, 102));
-  box-shadow: 0 2px 8px rgba(248, 70, 180, 0.3);
+  background: rgba(248, 70, 180, 0.25);
 }
 
 body.CosmicTheme .resume-btn {
@@ -67,19 +61,21 @@ body.CosmicTheme .resume-btn {
 
 body.CosmicTheme .resume-btn:hover {
   border-color: var(--btn-outline, rgba(140, 90, 142));
-  box-shadow: 0 2px 8px rgba(248, 70, 180, 0.2);
+  color: rgba(248, 180, 220);
+  background: rgba(248, 70, 180, 0.1);
 }
 
 .resume-content {
   position: relative;
   width: 100%;
-  height: 400px;
+  height: min(400px, 55vh);
   transition: height 0.3s ease;
   overflow: hidden;
+  border-radius: 4px;
 }
 
 .resume-content.expanded {
-  height: 800px;
+  height: min(800px, 85vh);
 }
 
 .resume-preview {
@@ -98,79 +94,34 @@ body.CosmicTheme .resume-btn:hover {
   background: white;
 }
 
-.resume-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.resume-preview:hover .resume-overlay {
-  opacity: 1;
-}
-
-.view-full-btn {
-  padding: 10px 20px;
-  font-size: 14px;
-  background: var(--accent-blue);
-  border-color: var(--accent-blue);
-  color: white;
-  box-shadow: 0 4px 12px rgba(26, 159, 255, 0.3);
-}
-
-.view-full-btn:hover {
-  background: var(--accent-blue-hover);
-  border-color: var(--accent-blue-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(26, 159, 255, 0.4);
-}
-
-body.CosmicTheme .view-full-btn {
-  background: var(--btn-background, rgb(90, 40, 92));
-  border-color: var(--btn-outline, rgba(140, 90, 142));
-  box-shadow: 0 4px 12px rgba(248, 70, 180, 0.3);
-}
-
-body.CosmicTheme .view-full-btn:hover {
-  background: var(--btn-background-hover, rgb(100, 50, 102));
-  box-shadow: 0 6px 16px rgba(248, 70, 180, 0.4);
-}
-
 @media (max-width: 968px) {
   .resume-content {
-    height: 300px;
+    height: min(300px, 50vh);
   }
 
   .resume-content.expanded {
-    height: 600px;
-  }
-
-  .resume-actions {
-    flex-wrap: wrap;
-  }
-
-  .resume-btn {
-    font-size: 11px;
-    padding: 5px 10px;
+    height: min(600px, 80vh);
   }
 }
 
 @media (max-width: 640px) {
-  .resume-header-content {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
+  .resume-actions {
+    gap: 6px;
   }
 
-  .resume-actions {
-    width: 100%;
-    justify-content: flex-start;
+  .resume-btn {
+    font-size: 12px;
+    padding: 8px 12px;
+    min-height: 38px;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .expand-btn {
+    display: none;
+  }
+
+  .resume-content {
+    display: none;
   }
 }

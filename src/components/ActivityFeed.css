@@ -99,7 +99,7 @@
   background: rgba(27, 40, 56, 0.3);
   border-radius: 4px;
   border: 1px solid rgba(42, 71, 94, 0.5);
-  overflow: visible;
+  overflow: hidden;
 }
 
 .heatmap-header {
@@ -325,6 +325,11 @@ body.CosmicTheme .legend-box.intensity-4 {
 
   .contribution-heatmap {
     overflow: hidden;
+    padding: 10px;
+  }
+
+  .heatmap-weeks {
+    -webkit-overflow-scrolling: touch;
   }
 }
 

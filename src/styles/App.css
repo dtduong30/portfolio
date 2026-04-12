@@ -19,6 +19,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+  padding-bottom: 120px;
 }
 
 .content-wrapper {
@@ -39,7 +40,7 @@
 }
 
 body.CosmicTheme .content-wrapper {
-  background:
+  /* background:
     radial-gradient(
       farthest-side at top right,
       var(--gradient-right),
@@ -60,7 +61,9 @@ body.CosmicTheme .content-wrapper {
       var(--gradient-background-left),
       transparent 600px
     );
-  background-color: var(--gradient-background);
+  background-color: var(--gradient-background); */
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
 }
 
 .content-wrapper > * {
@@ -198,6 +201,25 @@ body.CosmicTheme .card-header {
 
   .card {
     padding: 15px;
+  }
+
+  .content-wrapper {
+    padding: 10px;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 380px) {
+  .container {
+    padding: 6px;
+  }
+
+  .card {
+    padding: 12px;
+  }
+
+  .content-wrapper {
+    padding: 8px;
   }
 }
 
