@@ -170,8 +170,18 @@ export const updateTrackingData = (updates: Partial<TrackingData>) => {
   }
 };
 
+// Grace period: ignore scroll-based achievements for the first few seconds
+// to prevent flooding on mobile where all sections are visible on load
+let systemReady = false;
+export const isSystemReady = () => systemReady;
+
 // Initialize achievement system
 export const initializeAchievementSystem = () => {
+  // Allow scroll-based achievements after a short grace period
+  setTimeout(() => {
+    systemReady = true;
+  }, 3000);
+
   // Check auto-unlock achievements
   unlockAchievement("first-steps");
 
@@ -208,8 +218,9 @@ const checkTimedAchievements = () => {
   }
 };
 
-// Track section visit
+// Track section visit (gated by grace period to avoid flooding on mobile)
 export const trackSectionVisit = (sectionId: string) => {
+  if (!systemReady) return;
   const trackingData = getTrackingData();
 
   if (!trackingData.sectionsVisited.includes(sectionId)) {

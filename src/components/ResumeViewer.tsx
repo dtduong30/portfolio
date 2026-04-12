@@ -1,11 +1,19 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './ResumeViewer.css'
 import { portfolioConfig } from '../config/portfolio.config'
 import { unlockAchievement } from '../services/achievementService'
 
 function ResumeViewer() {
   const [isExpanded, setIsExpanded] = useState(false)
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth <= 640)
   const resumeUrl = portfolioConfig.personal.resumeUrl
+
+  // Track mobile breakpoint to avoid rendering iframe (mobile browsers auto-download PDFs from iframes)
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth <= 640)
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
 
   if (!resumeUrl) {
     return null
@@ -62,15 +70,17 @@ function ResumeViewer() {
           Open
         </a>
       </div>
-      <div className={`resume-content ${isExpanded ? 'expanded' : ''}`}>
-        <div className="resume-preview">
-          <iframe
-            src={`${resumeUrl}#view=FitH`}
-            title="Resume Preview"
-            className="resume-iframe"
-          />
+      {!isMobile && (
+        <div className={`resume-content ${isExpanded ? 'expanded' : ''}`}>
+          <div className="resume-preview">
+            <iframe
+              src={`${resumeUrl}#view=FitH`}
+              title="Resume Preview"
+              className="resume-iframe"
+            />
+          </div>
         </div>
-      </div>
+      )}
     </div>
   )
 }

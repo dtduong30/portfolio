@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import './AchievementToast.css'
 import { VisitorAchievement } from '../types'
 import { onAchievementUnlock } from '../services/achievementService'
@@ -9,12 +9,36 @@ interface ToastData extends VisitorAchievement {
   toastId: string
 }
 
+const TOAST_DISPLAY_TIME = 5000
+const TOAST_STAGGER_DELAY = 1500
+
 function AchievementToast() {
-  const [toasts, setToasts] = useState<ToastData[]>([])
+  const [visibleToasts, setVisibleToasts] = useState<ToastData[]>([])
+  const queueRef = useRef<ToastData[]>([])
+  const processingRef = useRef(false)
+
+  const showNextToast = () => {
+    if (queueRef.current.length === 0) {
+      processingRef.current = false
+      return
+    }
+
+    processingRef.current = true
+    const toast = queueRef.current.shift()!
+
+    setVisibleToasts(prev => [...prev, toast])
+
+    // Auto-remove after display time
+    setTimeout(() => {
+      setVisibleToasts(prev => prev.filter(t => t.toastId !== toast.toastId))
+    }, TOAST_DISPLAY_TIME)
+
+    // Show next toast after stagger delay
+    setTimeout(showNextToast, TOAST_STAGGER_DELAY)
+  }
 
   useEffect(() => {
     const unsubscribe = onAchievementUnlock((achievement) => {
-      // Generate unique toast ID using achievement ID and timestamp
       const toastId = `${achievement.id}-${Date.now()}-${Math.random()}`
 
       const toast: ToastData = {
@@ -23,24 +47,24 @@ function AchievementToast() {
         toastId,
       }
 
-      setToasts(prev => [...prev, toast])
+      queueRef.current.push(toast)
 
-      // Auto-remove after 5 seconds
-      setTimeout(() => {
-        setToasts(prev => prev.filter(t => t.toastId !== toastId))
-      }, 5000)
+      // Start processing queue if not already
+      if (!processingRef.current) {
+        showNextToast()
+      }
     })
 
     return unsubscribe
   }, [])
 
   const removeToast = (toastId: string) => {
-    setToasts(prev => prev.filter(t => t.toastId !== toastId))
+    setVisibleToasts(prev => prev.filter(t => t.toastId !== toastId))
   }
 
   return (
     <div className="achievement-toast-container">
-      {toasts.map((toast) => (
+      {visibleToasts.map((toast) => (
         <div
           key={toast.toastId}
           className={`achievement-toast ${toast.rarity || 'common'}`}
