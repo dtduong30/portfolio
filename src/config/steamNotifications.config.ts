@@ -1,36 +1,10 @@
-export interface SteamNotification {
-  id: string;
-  type: "friend-online" | "playing" | "invite" | "achievement" | "message";
-  avatar?: string;
-  name: string;
-  message: string;
-  action?: string;
-}
+import {
+  NotificationData,
+  NotificationOptions,
+  SteamNotification,
+  UserState,
+} from "../types";
 
-interface NotificationData {
-  users: { name: string; avatar?: string }[];
-  games: string[];
-  achievements: string[];
-  invites: string[];
-  messages: string[];
-  templates: {
-    type: SteamNotification["type"];
-    message: string;
-    action?: string;
-  }[];
-}
-
-interface NotificationOptions {
-  excludeUsers?: string[];
-  excludeActions?: string[];
-}
-
-type UserPresenceState = "offline" | "online" | "playing";
-
-interface UserState {
-  status: UserPresenceState;
-  currentGame?: string;
-}
 const userStates = new Map<string, UserState>();
 
 let data: NotificationData | null = null;
