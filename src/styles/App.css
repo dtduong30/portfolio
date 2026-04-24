@@ -236,3 +236,9 @@ body.CosmicTheme {
     rgba(255, 210, 100, 1)
   );
 }
+
+/* Hide floating toasts/notifications when a modal is open */
+body.modal-open .achievement-toast-container,
+body.modal-open .steam-notification-container {
+  display: none;
+}

@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
+import { createPortal } from "react-dom";
 import { loadProjects } from "../config/projectShowcase.config";
 import { ProjectExperience } from "../types";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -7,154 +8,149 @@ import "./ProjectShowcase.css";
 export default function ProjectShowcase() {
   const { t } = useLanguage();
   const [projects, setProjects] = useState<ProjectExperience[]>([]);
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [selected, setSelected] = useState<ProjectExperience | null>(null);
 
   useEffect(() => {
     let isMounted = true;
-
     loadProjects().then((data) => {
-      if (isMounted && data) {
-        setProjects(data);
-      }
+      if (isMounted && data) setProjects(data);
     });
-
-    return () => {
-      isMounted = false;
-    };
+    return () => { isMounted = false; };
   }, []);
 
-  const totalSlides = projects.length;
+  const closeModal = useCallback(() => setSelected(null), []);
 
-  const changeSlide = (nextIndex: number) => {
-    if (isAnimating || totalSlides <= 1 || nextIndex === currentSlide) return;
+  useEffect(() => {
+    if (!selected) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") closeModal(); };
+    document.addEventListener("keydown", onKey);
+    const scrollY = window.scrollY;
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = "100%";
+    document.body.classList.add("modal-open");
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      document.body.classList.remove("modal-open");
+      window.scrollTo(0, scrollY);
+    };
+  }, [selected, closeModal]);
 
-    setIsAnimating(true);
-    setCurrentSlide(nextIndex);
-
-    window.setTimeout(() => {
-      setIsAnimating(false);
-    }, 180);
-  };
-
-  const nextSlide = () => {
-    changeSlide((currentSlide + 1) % totalSlides);
-  };
-
-  const prevSlide = () => {
-    changeSlide((currentSlide - 1 + totalSlides) % totalSlides);
-  };
-
-  const goToSlide = (index: number) => {
-    changeSlide(index);
-  };
-
-  if (totalSlides === 0) return null;
-
-  const project = projects[currentSlide];
-  const visibleContributions = project.keyContributions.slice(0, 5);
+  if (projects.length === 0) return null;
 
   return (
-    <section id="projects" className="card github-replay project-showcase">
+    <section id="projects" className="card project-showcase">
       <div className="card-header">
-        <div className="replay-header-content">
-          <span>{t.showcaseTitle}</span>
-          <span className="showcase-counter">
-            {currentSlide + 1} / {totalSlides}
-          </span>
-        </div>
+        <span>{t.showcaseTitle}</span>
+        <span className="showcase-count">{projects.length} projects</span>
       </div>
 
-      <div className="replay-carousel">
-        <button
-          type="button"
-          className="carousel-hitbox prev-hitbox"
-          onClick={prevSlide}
-          aria-label="Previous project"
-          disabled={isAnimating || totalSlides <= 1}
-        >
-          <span className="carousel-nav">◀</span>
-        </button>
-
-        <article className={`slide project-slide ${isAnimating ? "animating" : ""}`}>
-          <header className="project-header">
-            {project.logo && (
-              <img
-                src={project.logo}
-                alt={project.name}
-                className="project-logo"
-              />
-            )}
-            <div className="project-title-block">
-              <h3 className="project-name" title={project.name}>
-                <span className="project-name-text">{project.name}</span>
-              </h3>
-            </div>
-          </header>
-
-          <span className="project-period">{project.period}</span>
-
-          <div className="project-meta">
-            <div className="meta-item">
-              <span className="meta-label">{t.showcasePosition}</span>
-              <span className="meta-value">{project.position}</span>
-            </div>
-            <div className="meta-item">
-              <span className="meta-label">{t.showcaseTeamSize}</span>
-              <span className="meta-value">
-                {project.teamSize} {t.showcaseMembers}
-              </span>
-            </div>
-          </div>
-
-          <div className="project-section">
-            <span className="meta-label">{t.showcaseOverview}</span>
-            <p className="project-overview-text">{project.overview}</p>
-          </div>
-
-          <div className="project-section">
-            <span className="meta-label">{t.showcaseTechStack}</span>
-            <div className="skill-tags">
-              {project.techStack.map((tech) => (
-                <span key={tech} className="skill-tag">
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          <div className="project-section">
-            <span className="meta-label">{t.showcaseKeyContributions}</span>
-            <ul className="project-contributions-list">
-              {visibleContributions.map((item, index) => (
-                <li key={`${project.id}-contribution-${index}`}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        </article>
-
-        <button
-          type="button"
-          className="carousel-hitbox next-hitbox"
-          onClick={nextSlide}
-          aria-label="Next project"
-          disabled={isAnimating || totalSlides <= 1}
-        >
-          <span className="carousel-nav">▶</span>
-        </button>
-      </div>
-
-      <div className="carousel-dots">
-        {projects.map((projectItem, index) => (
+      <div className="project-overview-grid">
+        {projects.map((project) => (
           <button
-            key={projectItem.id}
+            key={project.id}
             type="button"
-            className={`dot ${currentSlide === index ? "active" : ""}`}
-            onClick={() => goToSlide(index)}
-            aria-label={`Go to project ${index + 1}`}
-          />
+            className="project-overview-card"
+            onClick={() => setSelected(project)}
+            aria-label={`View details for ${project.name}`}
+          >
+            <div className="poc-header">
+              {project.logo && (
+                <img src={project.logo} alt={project.name} className="poc-logo" />
+              )}
+              <div className="poc-title-block">
+                <span className="poc-name">{project.name}</span>
+                <span className="poc-period">{project.period}</span>
+              </div>
+            </div>
+            <p className="poc-overview">{project.overview}</p>
+            <div className="poc-footer">
+              <span className="poc-position">{project.position}</span>
+              <div className="poc-tech-preview">
+                {project.techStack.slice(0, 3).map((tech) => (
+                  <span key={tech} className="poc-tech-tag">{tech}</span>
+                ))}
+                {project.techStack.length > 3 && (
+                  <span className="poc-tech-more">+{project.techStack.length - 3}</span>
+                )}
+              </div>
+            </div>
+          </button>
         ))}
       </div>
+
+      {selected && createPortal(
+        <div
+          className="project-modal-overlay"
+          onClick={closeModal}
+          role="dialog"
+          aria-modal="true"
+          aria-label={selected.name}
+        >
+          <div
+            className="project-modal"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="pm-header">
+              <div className="pm-title-row">
+                {selected.logo && (
+                  <img src={selected.logo} alt={selected.name} className="pm-logo" />
+                )}
+                <div className="pm-title-block">
+                  <h3 className="pm-name">{selected.name}</h3>
+                  <span className="pm-period">{selected.period}</span>
+                </div>
+              </div>
+              <button
+                type="button"
+                className="pm-close"
+                onClick={closeModal}
+                aria-label="Close"
+              >
+                ✕
+              </button>
+            </div>
+
+            <div className="pm-meta">
+              <div className="pm-meta-item">
+                <span className="pm-meta-label">{t.showcasePosition}</span>
+                <span className="pm-meta-value">{selected.position}</span>
+              </div>
+              <div className="pm-meta-item">
+                <span className="pm-meta-label">{t.showcaseTeamSize}</span>
+                <span className="pm-meta-value">{selected.teamSize} {t.showcaseMembers}</span>
+              </div>
+            </div>
+
+            <div className="pm-section">
+              <span className="pm-section-label">{t.showcaseOverview}</span>
+              <p className="pm-overview-text">{selected.overview}</p>
+            </div>
+
+            <div className="pm-section">
+              <span className="pm-section-label">{t.showcaseTechStack}</span>
+              <div className="skill-tags">
+                {selected.techStack.map((tech) => (
+                  <span key={tech} className="skill-tag">{tech}</span>
+                ))}
+              </div>
+            </div>
+
+            <div className="pm-section">
+              <span className="pm-section-label">{t.showcaseKeyContributions}</span>
+              <ul className="pm-contributions">
+                {selected.keyContributions.map((item, i) => (
+                  <li key={`contrib-${i}`}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>,
+        document.body
+      )}
     </section>
   );
 }

@@ -12,6 +12,7 @@ Steam-inspired portfolio website built with React 19, TypeScript, and Vite. Styl
 - `npm run build` — typecheck (`tsc`) then build with Vite
 - `npm run test` — run tests with Vitest (watch mode)
 - `npm run test:coverage` — run tests with coverage
+- `npx vitest run src/services/achievementService.test.ts` — run single test file
 
 ## Architecture
 
@@ -22,9 +23,17 @@ Steam-inspired portfolio website built with React 19, TypeScript, and Vite. Styl
 - **Styling**: Component-scoped CSS files alongside each component (no CSS modules or CSS-in-JS). Global styles in `src/styles/`.
 - **Steam theming utilities**: `src/utils/steamLevelColors.ts` (level badge colors), `src/utils/steamXP.ts` (XP calculations).
 
+## Skills
+
+Read `.claude/fe.md` and apply its rules when the task involves any of:
+- Keywords: "layout", "responsive", "mobile", "overflow", "UI", "UX", "animation", "CSS", "component", "design", "hydration", "CLS", "LCP", "INP", "a11y", "accessibility"
+- Files: anything in `src/components/`, `src/styles/`, or `*.css`
+- Phrases: "looks off", "broken on mobile", "fix the UI", "not responsive", "layout shift"
+
 ## Key Config Files
 
 - `src/config/portfolio.config.ts` — main content configuration (personal info, projects, skills)
+- `src/config/projectShowcase.config.ts` — project data loaded at runtime from CDN (`cdn.jsdelivr.net/gh/dtduong30/rich-content@master/projects.json`), not bundled
 - `src/config/achievements.config.ts` — visitor achievement definitions
 - `src/config/steamNotifications.config.ts` — Steam-style notification config
 - `src/config/media.config.ts` — media/asset configuration
