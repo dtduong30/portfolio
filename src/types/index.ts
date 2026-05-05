@@ -9,7 +9,11 @@ export interface PersonalInfo {
   birthday?: string;
   avatar?: string; // Optional: will use GitHub avatar if not provided
   banner?: string; // Optional: custom banner image
-  resumeUrl?: string; // Optional: path to resume PDF
+  resumes: {
+    label: string;
+    url: string;
+    isDefault: boolean;
+  }[]; // Optional: path to resume PDF
 }
 
 export interface SocialLinks {

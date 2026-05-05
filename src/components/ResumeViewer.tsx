@@ -6,7 +6,13 @@ import { unlockAchievement } from "../services/achievementService";
 function ResumeViewer() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isMobile, setIsMobile] = useState(() => window.innerWidth <= 640);
-  const resumeUrl = portfolioConfig.personal.resumeUrl;
+  const resumes = portfolioConfig.personal.resumes || [];
+
+  const [selectedResume, setSelectedResume] = useState(
+    resumes.find((r) => r.isDefault) || resumes[0],
+  );
+
+  const resumeUrl = selectedResume?.url;
 
   // Track mobile breakpoint to avoid rendering iframe (mobile browsers auto-download PDFs from iframes)
   useEffect(() => {

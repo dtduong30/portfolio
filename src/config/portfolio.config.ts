@@ -19,7 +19,17 @@ export const portfolioConfig: PortfolioConfig = {
     phone: "(+84) 344301199",
     birthday: "1999-11-30", // November 30, 1999
     banner: "/banner.webp",
-    resumeUrl: "/DuongDang_CV.pdf",
+    resumes: [
+      {
+        label: "Latest (2026)",
+        url: "/DuongDang_CV.pdf",
+        isDefault: true,
+      },
+      // {
+      //   label: "2024 Version";
+      //   url: "/DuongDang_CV_2024.pdf";
+      // },
+    ],
     avatar: avatar.chicken,
   },
 
