@@ -23,6 +23,14 @@
     {
       "source": "/satire-signout",
       "destination": "/index.html"
+    },
+    {
+      "source": "/pro",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/steam",
+      "destination": "/index.html"
     }
   ]
 }

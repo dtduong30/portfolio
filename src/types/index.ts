@@ -29,6 +29,16 @@ export interface FeaturedProject {
   featured?: boolean;
 }
 
+export interface SideProject {
+  id: string;
+  title: string;
+  description: string;
+  tech: string[];
+  image?: string; // optional screenshot/preview
+  demoUrl?: string;
+  sourceUrl?: string; // e.g. GitHub, if it has one
+}
+
 export interface Achievement {
   id: number;
   title: string;
