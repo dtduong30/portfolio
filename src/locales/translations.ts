@@ -64,6 +64,11 @@ export interface Translations {
   showcaseTechStack: string;
   showcaseOverview: string;
   showcaseKeyContributions: string;
+  showcaseFilterAll: string;
+  showcaseFilterWork: string;
+  showcaseFilterSide: string;
+  showcaseViewRepo: string;
+  showcaseViewLive: string;
 }
 
 export const translations: Record<Language, Translations> = {
@@ -123,6 +128,11 @@ export const translations: Record<Language, Translations> = {
     showcaseTechStack: "Tech Stack",
     showcaseOverview: "Overview",
     showcaseKeyContributions: "Key Contributions",
+    showcaseFilterAll: "All",
+    showcaseFilterWork: "Work",
+    showcaseFilterSide: "Side Projects",
+    showcaseViewRepo: "View Repo",
+    showcaseViewLive: "View Live",
   },
 
   sarcasm: {
@@ -183,6 +193,11 @@ export const translations: Record<Language, Translations> = {
     showcaseTechStack: "Buzzwords I Googled",
     showcaseOverview: "The Excuse",
     showcaseKeyContributions: "Things I Take Credit For",
+    showcaseFilterAll: "All Of It",
+    showcaseFilterWork: "Paid Chaos",
+    showcaseFilterSide: "Unpaid Chaos",
+    showcaseViewRepo: "Judge My Code",
+    showcaseViewLive: "See It Break Live",
   },
 
   emoji: {
@@ -240,6 +255,11 @@ export const translations: Record<Language, Translations> = {
     showcaseTechStack: "🛠️",
     showcaseOverview: "📋",
     showcaseKeyContributions: "⭐ 🎯",
+    showcaseFilterAll: "📊",
+    showcaseFilterWork: "💼",
+    showcaseFilterSide: "🌙",
+    showcaseViewRepo: "🐙",
+    showcaseViewLive: "🌐",
   },
 
   lorem: {
@@ -298,6 +318,11 @@ export const translations: Record<Language, Translations> = {
     showcaseTechStack: "Technologia Acervus",
     showcaseOverview: "Conspectus",
     showcaseKeyContributions: "Clavis Contributiones",
+    showcaseFilterAll: "Omnia",
+    showcaseFilterWork: "Opus",
+    showcaseFilterSide: "Latus Projectum",
+    showcaseViewRepo: "Vide Repositorium",
+    showcaseViewLive: "Vide Vivum",
   },
 
   youngStunnah: {
@@ -358,6 +383,11 @@ export const translations: Record<Language, Translations> = {
     showcaseTechStack: "Tech na Ginamit",
     showcaseOverview: "Kwento",
     showcaseKeyContributions: "Mga Gawa Ko",
+    showcaseFilterAll: "Lahat",
+    showcaseFilterWork: "Trabaho",
+    showcaseFilterSide: "Side Project Ko",
+    showcaseViewRepo: "Tignan Repo",
+    showcaseViewLive: "Tignan Live",
   },
 };
 

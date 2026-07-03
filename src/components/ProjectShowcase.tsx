@@ -9,6 +9,7 @@ export default function ProjectShowcase() {
   const { t } = useLanguage();
   const [projects, setProjects] = useState<ProjectExperience[]>([]);
   const [selected, setSelected] = useState<ProjectExperience | null>(null);
+  const [filter, setFilter] = useState<"all" | "work" | "side">("all");
 
   useEffect(() => {
     let isMounted = true;
@@ -41,15 +42,50 @@ export default function ProjectShowcase() {
 
   if (projects.length === 0) return null;
 
+  const filteredProjects = projects.filter((project) => {
+    if (filter === "all") return true;
+    return (project.category ?? "work") === filter;
+  });
+
   return (
     <section id="projects" className="card project-showcase">
       <div className="card-header">
         <span>{t.showcaseTitle}</span>
-        <span className="showcase-count">{projects.length} projects</span>
+        <span className="showcase-count">{filteredProjects.length} projects</span>
+      </div>
+
+      <div className="showcase-filter-tabs" role="tablist">
+        <button
+          type="button"
+          role="tab"
+          aria-selected={filter === "all"}
+          className={`showcase-filter-tab ${filter === "all" ? "active" : ""}`}
+          onClick={() => setFilter("all")}
+        >
+          {t.showcaseFilterAll}
+        </button>
+        <button
+          type="button"
+          role="tab"
+          aria-selected={filter === "work"}
+          className={`showcase-filter-tab ${filter === "work" ? "active" : ""}`}
+          onClick={() => setFilter("work")}
+        >
+          {t.showcaseFilterWork}
+        </button>
+        <button
+          type="button"
+          role="tab"
+          aria-selected={filter === "side"}
+          className={`showcase-filter-tab ${filter === "side" ? "active" : ""}`}
+          onClick={() => setFilter("side")}
+        >
+          {t.showcaseFilterSide}
+        </button>
       </div>
 
       <div className="project-overview-grid">
-        {projects.map((project) => (
+        {filteredProjects.map((project) => (
           <button
             key={project.id}
             type="button"
@@ -124,6 +160,31 @@ export default function ProjectShowcase() {
                 <span className="pm-meta-value">{selected.teamSize} {t.showcaseMembers}</span>
               </div>
             </div>
+
+            {(selected.repoUrl || selected.liveUrl) && (
+              <div className="pm-links">
+                {selected.repoUrl && (
+                  <a
+                    href={selected.repoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="pm-link-btn"
+                  >
+                    {t.showcaseViewRepo}
+                  </a>
+                )}
+                {selected.liveUrl && (
+                  <a
+                    href={selected.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="pm-link-btn"
+                  >
+                    {t.showcaseViewLive}
+                  </a>
+                )}
+              </div>
+            )}
 
             <div className="pm-section">
               <span className="pm-section-label">{t.showcaseOverview}</span>

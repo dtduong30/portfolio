@@ -244,6 +244,9 @@ export interface ProjectExperience {
   overview: string;
   keyContributions: string[];
   logo?: string;
+  category?: "work" | "side";
+  repoUrl?: string;
+  liveUrl?: string;
 }
 
 export interface SteamNotification {
