@@ -17,7 +17,8 @@ function ProHeader() {
           <a href="#contact">Contact</a>
         </nav>
         <a href="#contact" className="pro-nav-cta">
-          Hire me →
+          Let's talk
+          <span aria-hidden="true">→</span>
         </a>
       </div>
     </header>

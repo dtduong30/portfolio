@@ -48,6 +48,9 @@
 }
 
 .pro-nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   background: #17140f;
   color: #f2ede3;
   font-weight: 700;
@@ -55,10 +58,21 @@
   border-radius: 999px;
   text-decoration: none;
   font-size: 0.88rem;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pro-nav-cta span {
+  transition: transform 0.2s ease;
 }
 
 .pro-nav-cta:hover {
   background: #c1440e;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(193, 68, 14, 0.3);
+}
+
+.pro-nav-cta:hover span {
+  transform: translateX(2px);
 }
 
 .pro-main {

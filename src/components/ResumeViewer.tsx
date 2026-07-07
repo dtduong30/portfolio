@@ -38,7 +38,7 @@ function ResumeViewer() {
       <div className="resume-actions">
         <a
           href={resumeUrl}
-          download="DuongDang_CV.pdf"
+          download="DangTuanDuong_CV.pdf"
           className="resume-btn download-btn"
           title="Download Resume"
         >

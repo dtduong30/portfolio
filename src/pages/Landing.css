@@ -3,7 +3,29 @@
   src: local("Georgia");
 }
 
+@keyframes landing-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes landing-blob-drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(3%, -4%) scale(1.05);
+  }
+}
+
 .landing {
+  position: relative;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -11,6 +33,50 @@
   color: #17140f;
   padding: 28px clamp(20px, 6vw, 72px);
   font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  overflow: hidden;
+}
+
+.landing::before,
+.landing::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  pointer-events: none;
+  z-index: 0;
+  animation: landing-blob-drift 16s ease-in-out infinite;
+}
+
+.landing::before {
+  width: 480px;
+  height: 480px;
+  top: -160px;
+  right: -120px;
+  background: radial-gradient(
+    circle,
+    rgba(193, 68, 14, 0.16),
+    transparent 70%
+  );
+}
+
+.landing::after {
+  width: 420px;
+  height: 420px;
+  bottom: -180px;
+  left: -100px;
+  background: radial-gradient(
+    circle,
+    rgba(23, 20, 15, 0.08),
+    transparent 70%
+  );
+  animation-delay: -8s;
+}
+
+.landing-top,
+.landing-inner,
+.landing-foot {
+  position: relative;
+  z-index: 1;
 }
 
 .landing-top {
@@ -18,7 +84,6 @@
   align-items: center;
   justify-content: space-between;
   padding-bottom: 24px;
-  border-bottom: 1px solid rgba(23, 20, 15, 0.12);
 }
 
 .landing-mark {
@@ -37,6 +102,9 @@
   color: #5c5648;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  background: rgba(23, 20, 15, 0.05);
+  padding: 6px 12px;
+  border-radius: 999px;
 }
 
 .landing-dot {
@@ -44,6 +112,7 @@
   height: 6px;
   border-radius: 50%;
   background: #c1440e;
+  box-shadow: 0 0 0 3px rgba(193, 68, 14, 0.15);
 }
 
 .landing-inner {
@@ -59,6 +128,8 @@
   align-items: center;
   gap: 24px;
   margin-bottom: 20px;
+  opacity: 0;
+  animation: landing-fade-up 0.6s ease forwards;
 }
 
 .landing-avatar {
@@ -66,8 +137,8 @@
   height: 64px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #17140f;
   flex-shrink: 0;
+  box-shadow: 0 0 0 3px #f2ede3, 0 0 0 5px rgba(193, 68, 14, 0.35);
 }
 
 .landing-hi {
@@ -91,73 +162,126 @@
   color: #55503f;
   font-size: clamp(1.15rem, 1.6vw, 1.3rem);
   line-height: 1.6;
-  margin: 24px 0 60px;
+  margin: 24px 0 28px;
   font-style: italic;
+  opacity: 0;
+  animation: landing-fade-up 0.6s ease 0.08s forwards;
 }
 
-.landing-list {
-  border-top: 1px solid rgba(23, 20, 15, 0.15);
+.landing-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 48px;
+  opacity: 0;
+  animation: landing-fade-up 0.6s ease 0.14s forwards;
 }
 
-.landing-row {
+.landing-stat-chip {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #5c5648;
+  background: rgba(23, 20, 15, 0.06);
+  padding: 7px 14px;
+  border-radius: 999px;
+}
+
+.landing-cards {
   display: grid;
-  grid-template-columns: 56px 1fr 40px;
-  align-items: center;
-  gap: 24px;
-  padding: 32px 8px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.landing-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 32px 28px;
+  border-radius: 20px;
+  background: #fbf8f2;
   text-decoration: none;
   color: inherit;
-  border-bottom: 1px solid rgba(23, 20, 15, 0.15);
-  position: relative;
-  transition: padding-left 0.25s ease, background 0.25s ease;
+  box-shadow: 0 2px 14px rgba(23, 20, 15, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  opacity: 0;
+  animation: landing-fade-up 0.6s ease forwards;
+  animation-delay: var(--delay, 0.2s);
 }
 
-.landing-row:hover {
-  padding-left: 20px;
-  background: rgba(193, 68, 14, 0.05);
+.landing-card:hover {
+  transform: translateY(-6px);
+  background: #ffffff;
+  box-shadow: 0 20px 40px rgba(23, 20, 15, 0.12);
 }
 
-.landing-row-index {
+.landing-card-badge {
+  position: absolute;
+  top: -12px;
+  right: 20px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 0.95rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #fff;
+  background: #c1440e;
+  padding: 5px 12px;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(193, 68, 14, 0.35);
+}
+
+.landing-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.landing-card-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.landing-card-index {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.9rem;
   color: #a39c88;
   font-weight: 600;
 }
 
-.landing-row-tag {
-  display: inline-block;
+.landing-card-tag {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: #c1440e;
   font-weight: 700;
-  margin-bottom: 8px;
 }
 
-.landing-row-main h2 {
-  font-size: clamp(1.9rem, 3.6vw, 2.6rem);
+.landing-card h2 {
+  font-size: clamp(1.7rem, 3vw, 2.1rem);
   font-weight: 400;
-  margin: 0 0 8px;
-}
-
-.landing-row-main p {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: #55503f;
-  font-size: 1.05rem;
-  line-height: 1.55;
-  max-width: 500px;
   margin: 0;
 }
 
-.landing-row-arrow {
-  font-size: 1.9rem;
-  color: #17140f;
-  transition: transform 0.25s ease;
-  text-align: right;
+.landing-card p {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #55503f;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  margin: 0;
 }
 
-.landing-row:hover .landing-row-arrow {
+.landing-card-arrow {
+  align-self: flex-end;
+  margin-top: 8px;
+  font-size: 1.6rem;
+  color: #17140f;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.landing-card:hover .landing-card-arrow {
   transform: translate(4px, -4px);
   color: #c1440e;
 }
@@ -168,14 +292,16 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 0.8rem;
   color: #8a8370;
-  padding-top: 20px;
-  border-top: 1px solid rgba(23, 20, 15, 0.12);
+  padding-top: 32px;
+}
+
+@media (max-width: 700px) {
+  .landing-cards {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 560px) {
-  .landing-row {
-    grid-template-columns: 40px 1fr 28px;
-  }
   .landing-intro {
     flex-direction: column;
     align-items: flex-start;

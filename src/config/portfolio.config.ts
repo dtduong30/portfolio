@@ -22,13 +22,9 @@ export const portfolioConfig: PortfolioConfig = {
     resumes: [
       {
         label: "Latest (2026)",
-        url: "/DuongDang_CV.pdf",
+        url: "/DangTuanDuong_CV.pdf",
         isDefault: true,
       },
-      // {
-      //   label: "2024 Version";
-      //   url: "/DuongDang_CV_2024.pdf";
-      // },
     ],
     avatar: avatar.chicken,
   },
