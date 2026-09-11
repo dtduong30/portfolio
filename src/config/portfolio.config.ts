@@ -208,6 +208,7 @@ export const portfolioConfig: PortfolioConfig = {
       "RemixJS",
       "MaterialUI",
       "AntDesign",
+      "Astro",
     ],
     Database: ["PostgreSQL", "MongoDB", "MySQL", "Firebase", "DynamoDB"],
     Others: [
@@ -222,6 +223,9 @@ export const portfolioConfig: PortfolioConfig = {
       "Kubernetes",
       "GitFlow",
       "ClickHouse",
+      "Oracle Cloud",
+      "Claude Code",
+      "Strudel",
     ],
   },
 

@@ -9,7 +9,6 @@ export default function ProjectShowcase() {
   const { t } = useLanguage();
   const [projects, setProjects] = useState<ProjectExperience[]>([]);
   const [selected, setSelected] = useState<ProjectExperience | null>(null);
-  const [filter, setFilter] = useState<"all" | "work" | "side">("all");
 
   useEffect(() => {
     let isMounted = true;
@@ -42,46 +41,13 @@ export default function ProjectShowcase() {
 
   if (projects.length === 0) return null;
 
-  const filteredProjects = projects.filter((project) => {
-    if (filter === "all") return true;
-    return (project.category ?? "work") === filter;
-  });
+  const filteredProjects = projects.filter((project) => (project.category ?? "work") === "side");
 
   return (
     <section id="projects" className="card project-showcase">
       <div className="card-header">
         <span>{t.showcaseTitle}</span>
         <span className="showcase-count">{filteredProjects.length} projects</span>
-      </div>
-
-      <div className="showcase-filter-tabs" role="tablist">
-        <button
-          type="button"
-          role="tab"
-          aria-selected={filter === "all"}
-          className={`showcase-filter-tab ${filter === "all" ? "active" : ""}`}
-          onClick={() => setFilter("all")}
-        >
-          {t.showcaseFilterAll}
-        </button>
-        <button
-          type="button"
-          role="tab"
-          aria-selected={filter === "work"}
-          className={`showcase-filter-tab ${filter === "work" ? "active" : ""}`}
-          onClick={() => setFilter("work")}
-        >
-          {t.showcaseFilterWork}
-        </button>
-        <button
-          type="button"
-          role="tab"
-          aria-selected={filter === "side"}
-          className={`showcase-filter-tab ${filter === "side" ? "active" : ""}`}
-          onClick={() => setFilter("side")}
-        >
-          {t.showcaseFilterSide}
-        </button>
       </div>
 
       <div className="project-overview-grid">
