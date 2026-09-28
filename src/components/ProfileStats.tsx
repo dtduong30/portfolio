@@ -4,7 +4,7 @@ import { getYearsOfExperience, portfolioConfig, getWorkStatusConfig } from '../c
 import { fetchUserProfile, getStats } from '../services/github'
 import { calculateXPFromSources, calculateLevelFromXP } from '../utils/steamXP'
 import { getLevelBorderStyle } from '../utils/steamLevelColors'
-import { useLanguage } from '../contexts/LanguageContext'
+import { useLanguage } from '../contexts/useLanguage'
 import { getAchievementStats, onAchievementUnlock } from '../services/achievementService'
 
 // Calculate developer level based on GitHub stats + achievements using Steam-like XP system

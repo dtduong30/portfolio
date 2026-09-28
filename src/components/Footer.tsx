@@ -1,5 +1,5 @@
 import './Footer.css'
-import { useLanguage } from '../contexts/LanguageContext'
+import { useLanguage } from '../contexts/useLanguage'
 import { portfolioConfig } from '../config/portfolio.config'
 
 function Footer() {

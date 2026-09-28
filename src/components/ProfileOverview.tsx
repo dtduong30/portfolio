@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./ProfileOverview.css";
 import { portfolioConfig } from "../config/portfolio.config";
 import { fetchUserProfile } from "../services/github";
-import { useLanguage } from "../contexts/LanguageContext";
+import { useLanguage } from "../contexts/useLanguage";
 
 function ProfileOverview() {
   const [avatarUrl, setAvatarUrl] = useState<string>(

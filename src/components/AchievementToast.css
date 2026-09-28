@@ -1,6 +1,6 @@
 .achievement-toast-container {
   position: fixed;
-  top: 80px;
+  top: 124px;
   right: 20px;
   z-index: 100000;
   display: flex;
@@ -247,7 +247,7 @@
     right: 10px;
     left: 10px;
     max-width: none;
-    top: 70px;
+    top: 120px;
   }
 
   .achievement-toast {

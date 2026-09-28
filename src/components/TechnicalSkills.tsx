@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import './Showcases.css'
 import { portfolioConfig } from '../config/portfolio.config'
 import { trackSectionVisit } from '../services/achievementService'
-import { useLanguage } from '../contexts/LanguageContext'
+import { useLanguage } from '../contexts/useLanguage'
 
 function TechnicalSkills() {
   const { t } = useLanguage()

@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { createPortal } from "react-dom";
 import { loadProjects } from "../config/projectShowcase.config";
 import { ProjectExperience } from "../types";
-import { useLanguage } from "../contexts/LanguageContext";
+import { useLanguage } from "../contexts/useLanguage";
 import "./ProjectShowcase.css";
 
 export default function ProjectShowcase() {

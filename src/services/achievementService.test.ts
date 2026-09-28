@@ -8,6 +8,7 @@ import {
   trackKonamiKey,
   resetAchievements,
   getAchievementStats,
+  initializeAchievementSystem,
 } from './achievementService'
 import { visitorAchievements } from '../config/achievements.config'
 
@@ -79,6 +80,16 @@ describe('Achievement Service', () => {
   })
 
   describe('Section Visit Achievements', () => {
+    beforeEach(() => {
+      // Section tracking is gated by a 3s grace period after init
+      vi.useFakeTimers()
+      initializeAchievementSystem()
+      vi.advanceTimersByTime(3000)
+      vi.useRealTimers()
+      localStorage.clear()
+      resetAchievements()
+    })
+
     it('should unlock "tech-savvy" when skills section is visited', () => {
       trackSectionVisit('skills')
       const loaded = loadAchievements()
@@ -339,7 +350,7 @@ describe('Achievement Service', () => {
         'fellow-gamer',
         'star-gazer',
         'socially-active',
-        'project-hunter',
+        'generous-soul',
         'committed-visitor',
         'achievement-collector',
         'tech-savvy',

@@ -5,7 +5,7 @@ import {
   onAchievementUnlock,
   trackLogoClick,
 } from "../services/achievementService";
-import { useLanguage } from "../contexts/LanguageContext";
+import { useLanguage } from "../contexts/useLanguage";
 import { Language } from "../services/languageService";
 
 interface HeaderProps {
@@ -140,101 +140,6 @@ function Header({ onOpenAchievements, onOpenInfo, onOpenWallet }: HeaderProps) {
 
   return (
     <header className="header">
-      {/* Top Bar - User Actions */}
-      <div className="header-topbar">
-        <div className="header-topbar-container">
-          <div className="topbar-left"></div>
-          <div className="topbar-right">
-            <button
-              className="info-btn"
-              onClick={onOpenInfo}
-              title="Behind the Scenes"
-            >
-              <svg
-                className="info-icon"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="16" x2="12" y2="12"></line>
-                <line x1="12" y1="8" x2="12.01" y2="8"></line>
-              </svg>
-              {t.info}
-            </button>
-
-            <button
-              className="achievement-badge-btn-topbar"
-              onClick={onOpenAchievements}
-              title="View Achievements"
-            >
-              <span className="achievement-icon-topbar">🏆</span>
-              <span className="achievement-count-topbar">
-                {achievementStats.unlockedCount}/{achievementStats.totalCount}
-              </span>
-              {achievementStats.unlockedCount > 0 &&
-                achievementStats.unlockedCount <
-                  achievementStats.totalCount && (
-                  <span className="achievement-badge-pulse-topbar"></span>
-                )}
-            </button>
-
-            <div style={{ position: "relative" }}>
-              <button
-                className="user-dropdown-btn"
-                title="Account Menu"
-                onClick={() => setShowUserDropdown(!showUserDropdown)}
-              >
-                <span className="user-name">Dang Tuan Duong</span>
-                <svg
-                  className="dropdown-arrow"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 12 12"
-                  fill="currentColor"
-                >
-                  <polygon points="6,8 2,4 10,4"></polygon>
-                </svg>
-              </button>
-
-              {/* User Dropdown Menu */}
-              {showUserDropdown && (
-                <div className="user-dropdown-menu">
-                  <button className="dropdown-item">
-                    Account details:{" "}
-                    <span className="account-name">duongvippro3011</span>
-                  </button>
-
-                  {/* TODO: Change language */}
-
-                  <button
-                    className="dropdown-item dropdown-signout"
-                    onClick={() => (window.location.href = "/satire-signout")}
-                  >
-                    Sign out of account...
-                  </button>
-                </div>
-              )}
-            </div>
-
-            <a
-              href="#profile"
-              className="user-avatar-link"
-              title="View Profile"
-            >
-              <img
-                src="/cat_blanket.webp"
-                alt="Dang Tuan Duong"
-                className="user-avatar-img"
-              />
-            </a>
-          </div>
-        </div>
-      </div>
-
       {/* Main Header - Navigation */}
       <div className="header-main">
         <div className="header-container">
@@ -280,7 +185,94 @@ function Header({ onOpenAchievements, onOpenInfo, onOpenWallet }: HeaderProps) {
               </a>
             </nav>
           </div>
-          <div className="header-right"></div>
+          <div className="header-right">
+          <button
+            className="info-btn"
+            onClick={onOpenInfo}
+            title="Behind the Scenes"
+          >
+            <svg
+              className="info-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            {t.info}
+          </button>
+
+          <button
+            className="achievement-badge-btn-topbar"
+            onClick={onOpenAchievements}
+            title="View Achievements"
+          >
+            <span className="achievement-icon-topbar">🏆</span>
+            <span className="achievement-count-topbar">
+              {achievementStats.unlockedCount}/{achievementStats.totalCount}
+            </span>
+            {achievementStats.unlockedCount > 0 &&
+              achievementStats.unlockedCount <
+                achievementStats.totalCount && (
+                <span className="achievement-badge-pulse-topbar"></span>
+              )}
+          </button>
+
+          <div style={{ position: "relative" }}>
+            <button
+              className="user-dropdown-btn"
+              title="Account Menu"
+              onClick={() => setShowUserDropdown(!showUserDropdown)}
+            >
+              <span className="user-name">Dang Tuan Duong</span>
+              <svg
+                className="dropdown-arrow"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 12 12"
+                fill="currentColor"
+              >
+                <polygon points="6,8 2,4 10,4"></polygon>
+              </svg>
+            </button>
+
+            {/* User Dropdown Menu */}
+            {showUserDropdown && (
+              <div className="user-dropdown-menu">
+                <button className="dropdown-item">
+                  Account details:{" "}
+                  <span className="account-name">duongvippro3011</span>
+                </button>
+
+                {/* TODO: Change language */}
+
+                <button
+                  className="dropdown-item dropdown-signout"
+                  onClick={() => (window.location.href = "/satire-signout")}
+                >
+                  Sign out of account...
+                </button>
+              </div>
+            )}
+          </div>
+
+          <a
+            href="#profile"
+            className="user-avatar-link"
+            title="View Profile"
+          >
+            <img
+              src="/cat_blanket.webp"
+              alt="Dang Tuan Duong"
+              className="user-avatar-img"
+            />
+          </a>
+          </div>
         </div>
       </div>
     </header>

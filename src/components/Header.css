@@ -7,44 +7,21 @@
   border-bottom: 1px solid var(--border-color);
 }
 
-/* Top Bar - User Actions */
-.header-topbar {
-  padding: 4px 0;
-}
-
-.header-topbar-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.topbar-left {
-  flex: 1;
-}
-
-.topbar-right {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
 /* Main Header */
 .header-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px 10px;
+  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
 }
 
 .header-left {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 28px;
 }
 
 .logo {
@@ -70,11 +47,12 @@
   font-weight: bold;
   color: var(--accent-blue);
   letter-spacing: 2px;
+  white-space: nowrap;
 }
 
 .nav {
   display: flex;
-  gap: 25px;
+  gap: 20px;
 }
 
 .nav-link {
@@ -128,7 +106,22 @@ body.CosmicTheme .nav-link.active::after {
 .header-right {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
+}
+
+/* Not enough room for one row: actions move to their own row, top-right */
+@media (max-width: 1200px) {
+  .header-container {
+    flex-wrap: wrap;
+    padding-top: 4px;
+  }
+
+  .header-right {
+    order: -1;
+    width: 100%;
+    justify-content: flex-end;
+    margin-bottom: 4px;
+  }
 }
 
 .achievement-badge-btn {
@@ -202,19 +195,19 @@ body.CosmicTheme .achievement-badge-btn:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 4px;
-  padding: 4px 10px;
+  gap: 6px;
+  padding: 0 10px;
   background: rgba(255, 255, 255, 0.08);
   border: none;
   border-radius: 2px;
   color: #b8b6b4;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   cursor: pointer;
   transition: all 0.2s ease;
-  height: 24px;
+  height: 32px;
 }
 
 .info-btn:hover {
@@ -223,8 +216,8 @@ body.CosmicTheme .achievement-badge-btn:hover {
 }
 
 .info-icon {
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
 }
 
 body.CosmicTheme .info-btn {
@@ -242,16 +235,16 @@ body.CosmicTheme .info-btn:hover {
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 4px 10px;
+  padding: 0 10px;
   background: transparent;
   border: none;
   border-radius: 2px;
   color: #b8b6b4;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 400;
   cursor: pointer;
   transition: all 0.2s ease;
-  height: 24px;
+  height: 32px;
 }
 
 .user-dropdown-btn:hover {
@@ -293,8 +286,8 @@ body.CosmicTheme .user-dropdown-btn:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
   border-radius: 2px;
   overflow: hidden;
   transition: opacity 0.2s ease;
@@ -324,19 +317,19 @@ body.CosmicTheme .user-avatar-link:hover {
 .achievement-badge-btn-topbar {
   display: flex;
   align-items: center;
-  gap: 4px;
-  padding: 4px 10px;
+  gap: 6px;
+  padding: 0 10px;
   background: rgba(26, 159, 255, 0.1);
   border: 1px solid rgba(26, 159, 255, 0.3);
   border-radius: 2px;
   color: #b8b6b4;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 400;
   cursor: pointer;
   transition: all 0.2s ease;
   position: relative;
-  overflow: hidden;
-  height: 24px;
+  overflow: visible;
+  height: 32px;
 }
 
 .achievement-badge-btn-topbar:hover {
@@ -346,13 +339,13 @@ body.CosmicTheme .user-avatar-link:hover {
 }
 
 .achievement-icon-topbar {
-  font-size: 12px;
+  font-size: 15px;
 }
 
 .achievement-count-topbar {
   font-family: 'Courier New', monospace;
   letter-spacing: 0.5px;
-  font-size: 10px;
+  font-size: 12px;
   color: #b8b6b4;
 }
 
@@ -362,13 +355,12 @@ body.CosmicTheme .user-avatar-link:hover {
 
 .achievement-badge-pulse-topbar {
   position: absolute;
-  top: -2px;
-  right: -2px;
-  width: 8px;
-  height: 8px;
+  top: 3px;
+  right: 3px;
+  width: 6px;
+  height: 6px;
   background: #ffd700;
   border-radius: 50%;
-  border: 2px solid rgba(27, 40, 56, 0.95);
   animation: badgePulse 2s ease-in-out infinite;
 }
 
@@ -517,18 +509,6 @@ body.CosmicTheme .dropdown-submenu-item:hover {
 }
 
 @media (max-width: 768px) {
-  .header-topbar {
-    padding: 4px 0;
-  }
-
-  .header-topbar-container {
-    padding: 0 15px;
-  }
-
-  .topbar-right {
-    gap: 6px;
-  }
-
   .info-btn {
     height: 22px;
     padding: 3px 8px;
@@ -568,25 +548,33 @@ body.CosmicTheme .dropdown-submenu-item:hover {
     font-size: 9px;
   }
 
-  .achievement-badge-pulse-topbar {
-    width: 6px;
-    height: 6px;
-  }
-
   .header-container {
     flex-direction: column;
-    gap: 15px;
-    padding: 15px;
+    gap: 0;
+    padding: 4px 15px 6px;
+  }
+
+  .header-right {
+    gap: 6px;
   }
 
   .header-left {
     flex-direction: column;
-    gap: 15px;
+    gap: 4px;
     width: 100%;
+    min-width: 0;
   }
 
-  .header-right {
-    gap: 10px;
+  .logo {
+    max-width: 100%;
+    min-width: 0;
+    gap: 8px;
+  }
+
+  .logo-img {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
   }
 
   .nav {
@@ -596,7 +584,12 @@ body.CosmicTheme .dropdown-submenu-item:hover {
   }
 
   .logo-text {
-    font-size: 16px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
   }
 
   .nav-link {

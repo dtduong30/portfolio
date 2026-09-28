@@ -3,7 +3,7 @@ import './SocialSection.css'
 import { portfolioConfig } from '../config/portfolio.config'
 import { fetchUserProfile } from '../services/github'
 import { unlockAchievement, trackSectionVisit } from '../services/achievementService'
-import { useLanguage } from '../contexts/LanguageContext'
+import { useLanguage } from '../contexts/useLanguage'
 
 function SocialSection() {
   const [followers, setFollowers] = useState<number>(0)

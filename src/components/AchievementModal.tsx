@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import './AchievementModal.css'
 import { getAchievementStats } from '../services/achievementService'
-import { useLanguage } from '../contexts/LanguageContext'
+import { useLanguage } from '../contexts/useLanguage'
 
 interface AchievementModalProps {
   isOpen: boolean

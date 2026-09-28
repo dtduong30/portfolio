@@ -4,7 +4,7 @@ import { portfolioConfig } from '../config/portfolio.config'
 import { getFeaturedProject } from '../services/github'
 import { ProcessedProject } from '../types'
 import { trackSectionVisit, trackProjectView } from '../services/achievementService'
-import { useLanguage } from '../contexts/LanguageContext'
+import { useLanguage } from '../contexts/useLanguage'
 
 function FeaturedProjects() {
   const [featuredProjects, setFeaturedProjects] = useState<ProcessedProject[]>([])

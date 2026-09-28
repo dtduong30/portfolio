@@ -3,7 +3,7 @@ import './ActivityFeed.css'
 import { portfolioConfig } from '../config/portfolio.config'
 import { getProcessedActivity } from '../services/github'
 import { ProcessedActivity } from '../types'
-import { useLanguage } from '../contexts/LanguageContext'
+import { useLanguage } from '../contexts/useLanguage'
 import { trackSectionVisit } from '../services/achievementService'
 
 // Generate activity heatmap data for last 12 weeks
