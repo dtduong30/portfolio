@@ -86,7 +86,7 @@ export const translations: Record<Language, Translations> = {
     followers: "Followers",
     totalStars: "Total Stars",
     achievements: "Achievements",
-    workStatus: "Not looking for work",
+    workStatus: "Looking for work",
     profileDescription:
       "Software Craftsman with over 5 years of expertise in crafting scalable APIs and enhancing data architectures for high-performance systems. Inspired by technological frontiers, I’m passionate about exploring new ideas and continuously improving through innovation.",
     recentActivity: "Recent Activity",
